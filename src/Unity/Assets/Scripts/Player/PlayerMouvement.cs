@@ -19,8 +19,7 @@ namespace Player
         private void Update()
         {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-            // Check si on est au sol et que le GameObject ne soit pas en chute libre
+            
             if (isGrounded && velocity.y < 0)
             {
                 velocity.y = -2f;
