@@ -51,8 +51,7 @@ namespace Player
             var z = Input.GetAxis("Vertical");
             var move = transform.right * x + transform.forward * z;
             controller.Move(move * (speed * Time.deltaTime));
-
-            // Check si on est bien en contact le sol et qu'on appuis sur la touche de saut
+            
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 velocity.y = Mathf.Sqrt(3f * -2f * gravity);

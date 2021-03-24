@@ -24,10 +24,10 @@ namespace Player
             if (!(currentHealth <= 0)) return;
             currentHealth = 0;
             Debug.Log("mort");
-            restart();
+            Restart();
         }
 
-        private void restart()
+        private void Restart()
         {
             playerTransform.position = initialPlayerPosition;
             for (var i = 0; i < toBeCleanedTransforms.Length; i++)

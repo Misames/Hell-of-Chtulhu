@@ -2,7 +2,7 @@
 
 namespace Enemies
 {
-    public class EnemiesTarget : MonoBehaviour
+    public class Enemie : MonoBehaviour
     {
         public delegate void EnemyKilled();
         public static event EnemyKilled OnEnemyKilled;
