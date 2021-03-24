@@ -320,7 +320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465891520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.02}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2, y: 1.8, z: 1.2}
   m_Children: []
   m_Father: {fileID: 1586708807}
@@ -344,7 +344,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a53d8561df565c0469fa8e190db4eb89, type: 2}
+  - {fileID: 2100000, guid: 835646996a55906438073e9fde6332fa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -598,7 +598,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ee865263d63613742b63198113441e9d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -646,7 +646,6 @@ MonoBehaviour:
   maxAmmo: 30
   reloadTime: 2
   FpsCam: {fileID: 1515216178}
-  nextTimeToFire: 0
 --- !u!1 &1123268841
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,7 +910,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 1586708807}
   mouseSensitivity: 100
-  xRotation: 0
 --- !u!81 &1515216177
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1191,6 +1189,7 @@ MonoBehaviour:
   controller: {fileID: 1586708806}
   groundCheck: {fileID: 1084069686}
   groundMask:
+    serializedVersion: 2
     m_Bits: 256
   groundDistance: 0.4
   speed: 12
@@ -1198,8 +1197,6 @@ MonoBehaviour:
   sprintDuration: 5
   timeRecoverySprint: 5
   gravity: -78.48
-  velocity: {x: 0, y: 0, z: 0}
-  isGrounded: 0
 --- !u!1 &1613590912
 GameObject:
   m_ObjectHideFlags: 0
