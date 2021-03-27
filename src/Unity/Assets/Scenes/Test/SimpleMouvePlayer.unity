@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &320189630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6681790224452363368, guid: c93358e116cd36f47a64f91d4608ea15,
+    type: 3}
+  m_PrefabInstance: {fileID: 8894556515545124157}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &535478607
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +356,12 @@ Transform:
   m_Father: {fileID: 535478611}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &1184116999 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8894556516991127567, guid: c93358e116cd36f47a64f91d4608ea15,
+    type: 3}
+  m_PrefabInstance: {fileID: 8894556515545124157}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1489052408
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,6 +899,111 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2826217193825864725, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826217193825864725, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826217193825864725, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826217193825864725, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826217193825864725, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -117
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826217193825864725, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206841545255091600, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681790224452363368, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7180370179446608367, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961920869580742115, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961920869580742115, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042729565285339187, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: bulletsLeft
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042729565285339187, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: fireRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042729565285339187, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: currentBullets
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042729565285339187, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: reloadTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042729565285339187, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: FpsCam
+      value: 
+      objectReference: {fileID: 1184116999}
+    - target: {fileID: 8042729565285339187, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: BulletsTxt
+      value: 
+      objectReference: {fileID: 320189630}
+    - target: {fileID: 8042729565285339187, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: damage
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042729565285339187, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: bulletsPerMag
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894556515708722560, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894556515708722685, guid: c93358e116cd36f47a64f91d4608ea15,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8894556516911631480, guid: c93358e116cd36f47a64f91d4608ea15,
         type: 3}
       propertyPath: m_Name

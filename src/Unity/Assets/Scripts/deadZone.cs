@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class deadZone : MonoBehaviour
+public class DeadZone : MonoBehaviour
 {
     private void OnTriggerEnter(Collider col)
     {
@@ -12,17 +9,5 @@ public class deadZone : MonoBehaviour
             print("ca marche");
             Destroy(gameObject);
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
