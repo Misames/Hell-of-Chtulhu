@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2301054795672364271}
   - component: {fileID: 6484571401529147489}
   - component: {fileID: 5126377581079195935}
-  - component: {fileID: 7018774415046408001}
   - component: {fileID: 2952093684466346218}
+  - component: {fileID: 7422360990070840533}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -115,7 +115,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &7018774415046408001
+--- !u!114 &2952093684466346218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314184667442715012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337989af95671cc47ba55bd7d43fb086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!195 &7422360990070840533
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,19 +150,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2952093684466346218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5314184667442715012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 337989af95671cc47ba55bd7d43fb086, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!1 &6062571913911908031
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,8 +253,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8170322998386621523}
-  - component: {fileID: 9121138436603287172}
-  - component: {fileID: 4611341545531144723}
+  - component: {fileID: 8029644934997069940}
+  - component: {fileID: 8632187391408621206}
   m_Layer: 0
   m_Name: ControllerScript
   m_TagString: Enemy
@@ -276,7 +276,7 @@ Transform:
   m_Father: {fileID: 5948973439784378854}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9121138436603287172
+--- !u!114 &8029644934997069940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,12 +288,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4ed71b02a809241bf133754f1e5515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 7018774415046408001}
-  enemyTransform: {fileID: 7748006131705892381, guid: 13ec2f0c894b2fe44a9725dd9dcb44b8,
-    type: 3}
+  agent: {fileID: 7422360990070840533}
+  enemyTransform: {fileID: 6785437746685164098}
   maxPatrolRange: 10
-  sightRange: 1
---- !u!114 &4611341545531144723
+  sightRange: 2
+--- !u!114 &8632187391408621206
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -305,8 +304,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817dd7129736a4044b7c8b1ec04bbeab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 7018774415046408001}
+  agent: {fileID: 7422360990070840533}
   enemyTransform: {fileID: 5948973439784378854}
-  projectile: {fileID: 5314184667442715012}
+  projectile: {fileID: 1051949816600110019, guid: 13ec2f0c894b2fe44a9725dd9dcb44b8,
+    type: 3}
   attackRange: 10
   timeBetweenAttack: 1

@@ -42,8 +42,8 @@ namespace Player
         {
             if (Physics.Raycast(Cam.transform.position, Cam.transform.forward, out var hit, RANGE))
             {
-                Debug.Log($"Obj hit : {hit.transform.name}");
-                var target = hit.transform.GetComponent<Enemie>();
+                // Debug.Log($"Obj hit : {hit.transform.name}");
+                var target = hit.transform.GetComponent<Enemy>();
                 if (target != null)
                     target.TakeDamage(damage);
             }
