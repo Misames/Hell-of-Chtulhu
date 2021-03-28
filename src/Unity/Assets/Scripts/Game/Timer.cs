@@ -1,23 +1,16 @@
 ﻿using UnityEngine;
 using TMPro;
 
-public class ScoreManager : MonoBehaviour
+public class Timer : MonoBehaviour
 {
-    public int score = 0;
-    float secElapsed = 0f;
-    float minElapsed = 0f;
-    public TextMeshProUGUI textUI;
+    private float secElapsed = 0f;
+    private float minElapsed = 0f;
     public TextMeshProUGUI timeUI;
-    public void IncreaseScore()
-    {
-        score += 100;
-        textUI.text = "Score " + this.score;
-    }
 
     private void Update()
     {
         secElapsed += Time.deltaTime;
-        if(secElapsed >= 59)
+        if (secElapsed >= 59)
         {
             minElapsed += 1f;
             secElapsed = 0f;

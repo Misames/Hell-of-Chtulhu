@@ -15,7 +15,7 @@ namespace Player
         public float reloadTime = 5.0f;
         private float nextTimeToFire = 0f;
         private const float RANGE = 200.0f;
-        public Camera FpsCam;
+        public Camera Cam;
         public TextMeshProUGUI BulletsTxt;
 
         private void Start()
@@ -35,14 +35,12 @@ namespace Player
                 }
             }
             else if (Input.GetKeyDown(KeyCode.R))
-            {
-                ReloadWeapon();
-            }
+                Reload();
         }
 
         private void Shoot()
         {
-            if (Physics.Raycast(FpsCam.transform.position, FpsCam.transform.forward, out var hit, RANGE))
+            if (Physics.Raycast(Cam.transform.position, Cam.transform.forward, out var hit, RANGE))
             {
                 Debug.Log($"Obj hit : {hit.transform.name}");
                 var target = hit.transform.GetComponent<Enemie>();
@@ -54,35 +52,24 @@ namespace Player
             BulletsTxt.text = $"{currentBullets} / {bulletsLeft}";
         }
 
-        private void ReloadWeapon()
+        private void Reload()
         {
-            if (bulletsLeft == 0)
-            {
-                Debug.Log("on peut plus reload ma geule");
-            }
-            else if (bulletsLeft >= bulletsPerMag)
+            if (bulletsLeft >= bulletsPerMag)
             {
                 bulletsLeft -= bulletsConsum;
                 currentBullets = bulletsPerMag;
             }
             else
             {
-                if (bulletsLeft < 0)
+                if (bulletsConsum > bulletsLeft)
+                {
+                    currentBullets += bulletsLeft;
                     bulletsLeft = 0;
+                }
                 else
                 {
-                    if (bulletsConsum > bulletsLeft)
-                    {
-                        Debug.Log("wesh 4");
-                        currentBullets += bulletsLeft;
-                        bulletsLeft = 0;
-                    }
-                    else
-                    {
-                        Debug.Log("wesh 5");
-                        currentBullets += bulletsConsum;
-                        bulletsLeft -= bulletsConsum;
-                    }
+                    currentBullets += bulletsConsum;
+                    bulletsLeft -= bulletsConsum;
                 }
             }
             bulletsConsum = 0;
