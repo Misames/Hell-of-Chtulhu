@@ -16,15 +16,15 @@ public class WeaponSwitching : MonoBehaviour
             if (weaponSelected >= transform.childCount - 1)
                 weaponSelected = 0;
             else
-                ++weaponSelected;
+                weaponSelected++;
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             if (weaponSelected <= 0)
-                weaponSelected = transform.childCount;
+                weaponSelected = transform.childCount - 1;
             else
-                --weaponSelected;
+                weaponSelected--;
         }
 
 
@@ -56,7 +56,7 @@ public class WeaponSwitching : MonoBehaviour
                 weapon.gameObject.SetActive(true);
             else
                 weapon.gameObject.SetActive(false);
-            ++i;
+            i++;
         }
     }
 
