@@ -4,7 +4,7 @@ namespace Player
 {
     public class PlayerHealth : MonoBehaviour
     {
-        public const int MAXHEALTH = 100;
+        public int MAXHEALTH = 100;
         public int currentHealth;
 
         public HealthBar healthBar;
@@ -16,11 +16,15 @@ namespace Player
         }
         public void TakeDamage(int damage)
         {
-            currentHealth -= damage;
-            if (!(currentHealth <= 0)) return;
-            currentHealth = 0;
-            Debug.Log("mort");
-            Restart();
+            
+
+
+                currentHealth -= damage;
+                if (!(currentHealth <= 0)) return;
+                currentHealth = 0;
+                Debug.Log("mort");
+                Restart();
+            
         }
 
         private void Restart()

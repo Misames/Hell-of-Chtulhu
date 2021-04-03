@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  healBox: {fileID: 8661740782964251627, guid: 95f14f102607b1c4581c98424f95c6c0, type: 3}
+  ammoBox: {fileID: 7518444945398765072, guid: 17076c2f206ea3847a38c1f9ab9683f3, type: 3}
 --- !u!1 &6062571913911908031
 GameObject:
   m_ObjectHideFlags: 0

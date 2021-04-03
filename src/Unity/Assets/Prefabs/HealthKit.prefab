@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 8661740782964251623}
   - component: {fileID: 8661740782964251622}
   - component: {fileID: 8661740782964251621}
+  - component: {fileID: 505417223885837971}
   - component: {fileID: 8661740782964251616}
+  - component: {fileID: 2129989864145902522}
   m_Layer: 8
   m_Name: HealthKit
   m_TagString: Untagged
@@ -94,6 +96,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &505417223885837971
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8661740782964251627}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!95 &8661740782964251616
 Animator:
   serializedVersion: 3
@@ -113,3 +128,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2129989864145902522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8661740782964251627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc0bf5727e05a341b02bf6f8ca0abe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
