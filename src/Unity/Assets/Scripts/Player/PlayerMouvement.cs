@@ -9,7 +9,7 @@ namespace Player
         public LayerMask groundMask;
         public float groundDistance = 0.4f;
         public float speed = 12f;
-        public float sprintSpeed = 24f;
+        public float sprintSpeed = 0f;
         public float sprintDuration = 5f;
         public float timeRecoverySprint = 10f;
         public float gravity = -9.81f;
@@ -25,12 +25,12 @@ namespace Player
 
             if (Input.GetKey(KeyCode.LeftShift) && sprintDuration > 0)
             {
-                speed = sprintSpeed;
+                sprintSpeed = 12f;
                 sprintDuration -= Time.deltaTime;
             }
             else
             {
-                speed = 12f;
+                sprintSpeed = 0f;
                 if (sprintDuration <= 0)
                 {
                     if (timeRecoverySprint > 0)
@@ -46,7 +46,7 @@ namespace Player
             var x = Input.GetAxis("Horizontal");
             var z = Input.GetAxis("Vertical");
             var move = transform.right * x + transform.forward * z;
-            controller.Move(move * (speed * Time.deltaTime));
+            controller.Move(move * ((speed + sprintSpeed) * Time.deltaTime));
 
             if (Input.GetButtonDown("Jump") && isGrounded)
                 velocity.y = Mathf.Sqrt(3f * -2f * gravity);

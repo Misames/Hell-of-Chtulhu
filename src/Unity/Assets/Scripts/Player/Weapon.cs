@@ -6,8 +6,8 @@ namespace Player
 {
     public class Weapon : MonoBehaviour
     {
-        public int fireRate = 1;
-        public float damage = 33;
+        public int fireRate = 5;
+        public float damage = 100;
         public int bulletsLeft = 200;
         public int bulletsPerMag = 30;
         public int currentBullets = 30;
@@ -45,7 +45,10 @@ namespace Player
                 // Debug.Log($"Obj hit : {hit.transform.name}");
                 var target = hit.transform.GetComponent<Enemy>();
                 if (target != null)
+                {
                     target.TakeDamage(damage);
+                    // Afficher un marrquer de hit
+                }
             }
             --currentBullets;
             ++bulletsConsum;

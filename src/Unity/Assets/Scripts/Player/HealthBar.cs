@@ -22,16 +22,12 @@ public class HealthBar : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        this.SetHeath(currentHealth);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            TakeDamage(20);
+            currentHealth -= damage;
+            this.SetHeath(currentHealth);
         }
+        
     }
 
 }

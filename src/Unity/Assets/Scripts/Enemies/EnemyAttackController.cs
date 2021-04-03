@@ -7,10 +7,12 @@ namespace EnemyScript
     public class EnemyAttackController : MonoBehaviour
     {
         public NavMeshAgent agent;
+        public HealthBar HealthPlayer;
         public Transform enemyTransform;
         private Transform _target;
         public GameObject projectile;
         private Vector3 _walkPoint;
+        public int dmg = 0;
         public float attackRange;
         public float timeBetweenAttack;
         private bool _targetInAttackRange;
