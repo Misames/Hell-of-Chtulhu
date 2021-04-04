@@ -3,78 +3,85 @@ using UnityEngine.AI;
 
 namespace EnemyScript
 {
+    enum Status
+    {
+        chase,
+        alert,
+        patrol
+    }
+    
     public class EnemyMovementController : MonoBehaviour
     {
 
         public NavMeshAgent agent;
         public Transform enemyTransform;
-        private Transform _target;
-        private Vector3 _walkPoint;
+        private Transform target;
+        private Vector3 walkPoint;
+        private Status enemyStatus;
         public float maxPatrolRange;
-        private bool _walkPointIsSet;
-        private bool _canMove;
+        private bool walkPointIsSet;
+        private bool canMove;
         public float sightRange;
-        private bool _targetIsInSight;
+        private bool targetIsInSight;
 
         private void Awake()
         {
-            _target = GameObject.Find("FPSPlayer").transform;
-            _walkPointIsSet = false;
-            _canMove = true;
+            target = GameObject.Find("FPSPlayer").transform;
+            walkPointIsSet = false;
+            canMove = true;
+            enemyStatus = Status.patrol;
+
         }
 
         public void SetCanMove(bool b)
         {
-            _canMove = b;
+            canMove = b;
         }
 
         void Update()
         {
-            _targetIsInSight = Physics.CheckSphere(enemyTransform.position, sightRange, 1 << 9);
-            //Debug.Log("in sight"+_targetIsInSight);
+            targetIsInSight = Vector3.Distance(enemyTransform.position,target.position)< sightRange;
+            //Debug.Log("distance: "+Vector3.Distance(enemyTransform.position,target.position));
 
-            if (!_targetIsInSight && _canMove)
+            if (!targetIsInSight)
             {
-                //Debug.Log("patrol");
+                enemyStatus = Status.patrol;
                 Patrolling();
             }
-
-            if (_targetIsInSight && _canMove)
+            if (targetIsInSight )
             {
-                //Debug.Log("chase");
+                enemyStatus = Status.chase;
                 ChaseTarget();
             }
         }
 
         private void Patrolling()
         {
-            if (!_walkPointIsSet) SearchWalkPoint();
-            if (_walkPointIsSet) agent.SetDestination(_walkPoint);
-
-            Vector3 distanceToWalkPoint = enemyTransform.position - _walkPoint;
-
-            if (distanceToWalkPoint.magnitude < 1)
-                _walkPointIsSet = false;
+            
+            if (!walkPointIsSet)
+            {
+                Debug.Log("newpoint");
+                SearchWalkPoint();
+                agent.SetDestination(walkPoint);
+            }
+            
+            if (Vector3.Distance(enemyTransform.position,walkPoint)<1)
+                walkPointIsSet = false;
         }
 
         private void SearchWalkPoint()
         {
-            //Debug.Log("searchWalk");
-            for (var i = 0; i < 100; i++)
+            if (NavMesh.SamplePosition(enemyTransform.position, out NavMeshHit hit, maxPatrolRange, NavMesh.AllAreas))
             {
-                float randomZ = Random.Range(-maxPatrolRange, maxPatrolRange);
-                float randomX = Random.Range(-maxPatrolRange, maxPatrolRange);
-                if (!NavMesh.SamplePosition(new Vector3(enemyTransform.position.x + randomX, enemyTransform.position.y, enemyTransform.position.z + randomZ), out NavMeshHit hit, 2,
-                    NavMesh.AllAreas)) continue;
-                _walkPoint = hit.position;
-                _walkPointIsSet = true;
-                break;
-            }
+                walkPoint = hit.position;
+                walkPointIsSet = true;
+            };
         }
-
+        
         private void ChaseTarget()
         {
-            agent.SetDestination(_target.position);
+            
+            agent.SetDestination(target.position);
         }
     }
 }

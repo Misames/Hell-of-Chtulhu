@@ -293,7 +293,7 @@ MonoBehaviour:
   agent: {fileID: 7422360990070840533}
   enemyTransform: {fileID: 6785437746685164098}
   maxPatrolRange: 10
-  sightRange: 2
+  sightRange: 40
 --- !u!114 &8632187391408621206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8295696201504316815}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 817dd7129736a4044b7c8b1ec04bbeab, type: 3}
   m_Name: 
