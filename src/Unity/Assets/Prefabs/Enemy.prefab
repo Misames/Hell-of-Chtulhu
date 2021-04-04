@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 7422360990070840533}
-  enemyTransform: {fileID: 6785437746685164098}
+  enemyTransform: {fileID: 5948973439784378854}
   maxPatrolRange: 10
   sightRange: 40
 --- !u!114 &8632187391408621206
