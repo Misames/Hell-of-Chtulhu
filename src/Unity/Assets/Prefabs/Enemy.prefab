@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5126377581079195935}
   - component: {fileID: 7422360990070840533}
   - component: {fileID: 4871167465008050047}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 5258063108631133287}
   - component: {fileID: 9157844027489281813}
   - component: {fileID: 7870492719531866857}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 8170322998386621523}
   - component: {fileID: 8029644934997069940}
   - component: {fileID: 8632187391408621206}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: ControllerScript
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -292,8 +292,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 7422360990070840533}
   enemyTransform: {fileID: 5948973439784378854}
+  speed: 20
   maxPatrolRange: 10
   sightRange: 40
+  closestDistance: 5
 --- !u!114 &8632187391408621206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,13 +303,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8295696201504316815}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 817dd7129736a4044b7c8b1ec04bbeab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 7422360990070840533}
-  HealthPlayer: {fileID: 0}
   enemyTransform: {fileID: 5948973439784378854}
   projectile: {fileID: 1051949816600110019, guid: 13ec2f0c894b2fe44a9725dd9dcb44b8,
     type: 3}

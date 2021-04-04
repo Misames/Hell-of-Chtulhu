@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 using UnityEngine.AI;
 
 
@@ -6,42 +7,43 @@ namespace EnemyScript
 {
     public class EnemyAttackController : MonoBehaviour
     {
-        public NavMeshAgent agent;
-        public HealthBar HealthPlayer;
         public Transform enemyTransform;
-        private Transform _target;
         public GameObject projectile;
-        private Vector3 _walkPoint;
+
         public int dmg = 0;
         public float attackRange;
         public float timeBetweenAttack;
-        private bool _targetInAttackRange;
+        private bool targetInAttackRange;
         private bool alreadyAttacked;
+        private Transform target;
+        private float distanceToTarget;
 
         private void Awake()
         {
-            _target = GameObject.Find("FPSPlayer").transform;
+            target = GameObject.Find("FPSPlayer").transform;
         }
 
         void Update()
         {
-            _targetInAttackRange = Physics.CheckSphere(enemyTransform.position, attackRange, 1 << 9);
-
-            if (_targetInAttackRange)
+            distanceToTarget = Vector3.Distance(enemyTransform.position, target.position);
+            
+            if (distanceToTarget<attackRange)
             {
-                Debug.Log("attack");
+                //Debug.Log("attack");
                 Attacking();
             }
         }
 
         void Attacking()
         {
-            agent.SetDestination(enemyTransform.position);
-            enemyTransform.LookAt(_target);
+            
+            enemyTransform.LookAt(target);
 
             if (!alreadyAttacked)
             {
                 Rigidbody rb = Instantiate(projectile, enemyTransform.position, enemyTransform.rotation).GetComponent<Rigidbody>();
+                rb.GetComponent<Bullet>().SetDamage(dmg);
+                
                 rb.AddForce(enemyTransform.forward * 32f, ForceMode.Impulse);
                 rb.AddForce(enemyTransform.up * 8f, ForceMode.Impulse);
                 alreadyAttacked = true;

@@ -15,14 +15,17 @@ namespace EnemyScript
 
         public NavMeshAgent agent;
         public Transform enemyTransform;
+        public float speed;
+        public float maxPatrolRange;
+        public float sightRange;
+        public float closestDistance;
+        
         private Transform target;
         private Vector3 walkPoint;
         private Status enemyStatus;
-        public float maxPatrolRange;
         private bool walkPointIsSet;
         private bool canMove;
-        public float sightRange;
-        private bool targetIsInSight;
+        private float distanceToTarget;
 
         private void Awake()
         {
@@ -30,6 +33,7 @@ namespace EnemyScript
             walkPointIsSet = false;
             canMove = true;
             enemyStatus = Status.patrol;
+            agent.speed = speed;
 
         }
 
@@ -40,19 +44,23 @@ namespace EnemyScript
 
         void Update()
         {
-            targetIsInSight = Vector3.Distance(enemyTransform.position,target.position)< sightRange;
+            distanceToTarget = Vector3.Distance(enemyTransform.position, target.position);
+            
             //Debug.Log("distance: "+Vector3.Distance(enemyTransform.position,target.position));
 
-            if (!targetIsInSight)
+            if (!(distanceToTarget < sightRange) && canMove)
             {
                 enemyStatus = Status.patrol;
                 Patrolling();
             }
-            if (targetIsInSight )
+            if ((distanceToTarget < sightRange) && canMove)
             {
+                
                 enemyStatus = Status.chase;
                 ChaseTarget();
             }
+            
+            
         }
 
         private void Patrolling()
@@ -60,19 +68,25 @@ namespace EnemyScript
             
             if (!walkPointIsSet)
             {
-                Debug.Log("newpoint");
+                //Debug.Log("newpoint");
                 SearchWalkPoint();
                 agent.SetDestination(walkPoint);
             }
-            
-            if (Vector3.Distance(enemyTransform.position,walkPoint)<1)
+
+            if (Vector3.Distance(enemyTransform.position, walkPoint) < 1)
+            {
+                //Debug.Log("reached");
                 walkPointIsSet = false;
+            }
+                
         }
 
         private void SearchWalkPoint()
         {
-            if (NavMesh.SamplePosition(enemyTransform.position, out NavMeshHit hit, maxPatrolRange, NavMesh.AllAreas))
+            
+            if (NavMesh.SamplePosition(new Vector3(enemyTransform.position.x+Random.Range(-maxPatrolRange,maxPatrolRange),enemyTransform.position.y,enemyTransform.position.z+Random.Range(-maxPatrolRange,maxPatrolRange)), out NavMeshHit hit, 100, NavMesh.AllAreas))
             {
+                //Debug.Log("found");
                 walkPoint = hit.position;
                 walkPointIsSet = true;
             };
@@ -80,8 +94,10 @@ namespace EnemyScript
         
         private void ChaseTarget()
         {
-            
-            agent.SetDestination(target.position);
+            Vector3 targetCircle = enemyTransform.position - target.position;
+            //Debug.Log(targetCircle);
+            targetCircle = targetCircle.normalized * closestDistance;
+            agent.SetDestination(target.position + targetCircle);
         }
     }
 }
