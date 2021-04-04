@@ -12,7 +12,6 @@ namespace Player
         private void Start()
         {
             currentHealth = MAXHEALTH;
-            healthBar.SetMaxHeath(MAXHEALTH);
         }
         public void TakeDamage(float damage)
         { 

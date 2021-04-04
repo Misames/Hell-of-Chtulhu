@@ -586,9 +586,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947ce46e0d7bf914294f5e93b163833f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 8476953931501558565}
   slider: {fileID: 3628120165782971392}
-  currentHealth: 100
+  playerHealth: {fileID: 6256618321293611180}
   gradient:
     serializedVersion: 2
     key0: {r: 1, g: 0.611645, b: 0, a: 1}

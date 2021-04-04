@@ -49,7 +49,7 @@ namespace Enemies
             }
                 
                 
-            
+            Level1.UpdateKill();
             Destroy(gameObject);
             if (OnEnemyKilled != null)
             {
