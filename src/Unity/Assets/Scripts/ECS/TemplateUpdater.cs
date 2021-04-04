@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using ECSModule;
 /* Updater test avec déplacement vers la droite
  * 
  */

@@ -14,8 +14,6 @@ namespace Enemies
         public GameObject healBox;
         public GameObject ammoBox;
 
-
-        // ReSharper disable Unity.PerformanceAnalysis
         public void TakeDamage(float amount)
         {
             health -= amount;
