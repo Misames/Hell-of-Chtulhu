@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Player;
+﻿using Player;
 using UnityEngine;
 
 public class ammoPickup : MonoBehaviour
 {
     private int ammo = 30;
     private GameObject player;
-    
-    private  Weapon _weapons;
+    private Weapon _weapons;
     private bool _showGUI = false;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +21,6 @@ public class ammoPickup : MonoBehaviour
         {
             if (Input.GetKeyDown("e"))
             {
-               
                 _weapons.bulletsLeft += ammo;
                 Destroy(gameObject);
             }
@@ -34,27 +29,20 @@ public class ammoPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        
+
         if (col.gameObject.CompareTag("Player"))
-        {
             _showGUI = true;
-        }
     }
 
     private void OnTriggerExit(Collider col)
     {
         if (col.gameObject.CompareTag("Player"))
-        {
             _showGUI = false;
-        }
     }
 
     private void OnGUI()
     {
         if (_showGUI == true)
-        {
-            GUI.Box(new Rect(Screen.width/2-100,Screen.height/2-12,200,25), " press E to pick Ammo");
-        } 
+            GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 12, 200, 25), " press E to pick Ammo");
     }
-    
 }

@@ -307,7 +307,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 7422360990070840533}
-  HealthPlayer: {fileID: 0}
   enemyTransform: {fileID: 5948973439784378854}
   projectile: {fileID: 1051949816600110019, guid: 13ec2f0c894b2fe44a9725dd9dcb44b8,
     type: 3}

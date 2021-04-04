@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    
+
     bool InventoryONOFF = false;
     public GameObject Player;
     private GameObject Panel;
@@ -34,23 +34,15 @@ public class Inventory : MonoBehaviour
             else
                 PauseGame();
         }
-        
-                    
-            
-            GetComponent<Canvas>().enabled = InventoryONOFF;
-            
-        }
+        GetComponent<Canvas>().enabled = InventoryONOFF;
+    }
 
-         
-
-    
-    
     void selection()
     {
         int numSlot = transform.parent.GetSiblingIndex();
         Inventaire_Script.Slot[numSlot] -= 1;
     }
-    
+
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
@@ -59,12 +51,12 @@ public class Inventory : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    
+
     public void PauseGame()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         pauseMenu.SetActive(true);
-        
+
     }
 }
