@@ -9,7 +9,7 @@ namespace EnemyScript
         alert,
         patrol
     }
-    
+
     public class EnemyMovementController : MonoBehaviour
     {
 
@@ -19,7 +19,7 @@ namespace EnemyScript
         public float maxPatrolRange;
         public float sightRange;
         public float closestDistance;
-        
+
         private Transform target;
         private Vector3 walkPoint;
         private Status enemyStatus;
@@ -45,9 +45,7 @@ namespace EnemyScript
         void Update()
         {
             distanceToTarget = Vector3.Distance(enemyTransform.position, target.position);
-            
             //Debug.Log("distance: "+Vector3.Distance(enemyTransform.position,target.position));
-
             if (!(distanceToTarget < sightRange) && canMove)
             {
                 enemyStatus = Status.patrol;
@@ -55,17 +53,13 @@ namespace EnemyScript
             }
             if ((distanceToTarget < sightRange) && canMove)
             {
-                
                 enemyStatus = Status.chase;
                 ChaseTarget();
             }
-            
-            
         }
 
         private void Patrolling()
         {
-            
             if (!walkPointIsSet)
             {
                 //Debug.Log("newpoint");
@@ -78,20 +72,18 @@ namespace EnemyScript
                 //Debug.Log("reached");
                 walkPointIsSet = false;
             }
-                
         }
 
         private void SearchWalkPoint()
         {
-            
-            if (NavMesh.SamplePosition(new Vector3(enemyTransform.position.x+Random.Range(-maxPatrolRange,maxPatrolRange),enemyTransform.position.y,enemyTransform.position.z+Random.Range(-maxPatrolRange,maxPatrolRange)), out NavMeshHit hit, 100, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(new Vector3(enemyTransform.position.x + Random.Range(-maxPatrolRange, maxPatrolRange), enemyTransform.position.y, enemyTransform.position.z + Random.Range(-maxPatrolRange, maxPatrolRange)), out NavMeshHit hit, 100, NavMesh.AllAreas))
             {
                 //Debug.Log("found");
                 walkPoint = hit.position;
                 walkPointIsSet = true;
             };
         }
-        
+
         private void ChaseTarget()
         {
             Vector3 targetCircle = enemyTransform.position - target.position;

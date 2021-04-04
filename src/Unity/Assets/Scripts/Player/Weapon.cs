@@ -21,7 +21,7 @@ namespace Player
         private void Start()
         {
             Cursor.visible = false;
-            BulletsTxt.text = $"{currentBullets} / {bulletsLeft}";
+            UpdateBullets();
         }
 
         private void Update()
@@ -52,7 +52,7 @@ namespace Player
             }
             --currentBullets;
             ++bulletsConsum;
-            BulletsTxt.text = $"{currentBullets} / {bulletsLeft}";
+            UpdateBullets();
         }
 
         private void Reload()
@@ -76,6 +76,11 @@ namespace Player
                 }
             }
             bulletsConsum = 0;
+            UpdateBullets();
+        }
+
+        private void UpdateBullets()
+        {
             BulletsTxt.text = $"{currentBullets} / {bulletsLeft}";
         }
     }

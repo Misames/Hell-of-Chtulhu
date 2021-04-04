@@ -7,11 +7,10 @@ namespace Player
 
         private int heal = 30;
         private GameObject player;
-        private  PlayerHealth health;
+        private PlayerHealth health;
         private HealthBar bar;
-    
         private bool ShowGUI = false;
-    
+
         // Start is called before the first frame update
         void Start()
         {
@@ -23,14 +22,11 @@ namespace Player
         {
             if (ShowGUI == true)
             {
-                if (Input.GetKeyDown("e") && health.currentHealth<health.MAXHEALTH)
+                if (Input.GetKeyDown("e") && health.currentHealth < health.MAXHEALTH)
                 {
-                
                     health.currentHealth += heal;
                     if (health.currentHealth > health.MAXHEALTH)
-                    {
                         health.currentHealth = health.MAXHEALTH;
-                    }
                     Destroy(gameObject);
                 }
             }
@@ -38,28 +34,20 @@ namespace Player
 
         private void OnTriggerEnter(Collider col)
         {
-        
             if (col.gameObject.tag == "Player")
-            {
                 ShowGUI = true;
-            }
         }
 
         private void OnTriggerExit(Collider col)
         {
             if (col.gameObject.tag == "Player")
-            {
                 ShowGUI = false;
-            }
         }
 
         private void OnGUI()
         {
             if (ShowGUI == true)
-            {
-                GUI.Box(new Rect(Screen.width/2-100,Screen.height/2-12,200,25), " press E to pick Heal");
-            } 
+                GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 12, 200, 25), " press E to pick Heal");
         }
-    
     }
 }

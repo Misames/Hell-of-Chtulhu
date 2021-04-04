@@ -9,7 +9,6 @@ namespace EnemyScript
     {
         public Transform enemyTransform;
         public GameObject projectile;
-
         public int dmg = 0;
         public float attackRange;
         public float timeBetweenAttack;
@@ -26,8 +25,7 @@ namespace EnemyScript
         void Update()
         {
             distanceToTarget = Vector3.Distance(enemyTransform.position, target.position);
-            
-            if (distanceToTarget<attackRange)
+            if (distanceToTarget < attackRange)
             {
                 //Debug.Log("attack");
                 Attacking();
@@ -36,14 +34,14 @@ namespace EnemyScript
 
         void Attacking()
         {
-            
+
             enemyTransform.LookAt(target);
 
             if (!alreadyAttacked)
             {
                 Rigidbody rb = Instantiate(projectile, enemyTransform.position, enemyTransform.rotation).GetComponent<Rigidbody>();
                 rb.GetComponent<Bullet>().SetDamage(dmg);
-                
+
                 rb.AddForce(enemyTransform.forward * 32f, ForceMode.Impulse);
                 rb.AddForce(enemyTransform.up * 8f, ForceMode.Impulse);
                 alreadyAttacked = true;

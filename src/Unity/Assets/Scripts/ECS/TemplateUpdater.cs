@@ -4,29 +4,33 @@ using ECSModule;
 /* Updater test avec déplacement vers la droite
  * 
  */
-public class TemplateUpdater : IUpdater
+namespace ECSModule
 {
-    // Déplacement vers la droite de tout les modules
-    public override void UpdateModules()
+    public class TemplateUpdater : IUpdater
     {
-        Accessor<TemplateModule> singletonAccessor = Accessor<TemplateModule>.Instance();
-        //Accessor<OtherTemplateModule> singletonOtherAccessor = Accessor<OtherTemplateModule>.Instance();
-
-        foreach (var dictEntry in singletonAccessor.GetAllModules())
+        // Déplacement vers la droite de tout les modules
+        public override void UpdateModules()
         {
-            TemplateModule mod= dictEntry.Value;
-            //OtherTemplateModule otherModule = singletonOtherAccessor.TryGetModule(dictEntry.Key);
-            
-            //Operations sur module
-            mod.objectTr.position = new Vector2(mod.objectTr.position.x+0.01f,mod.objectTr.position.y);
+            Accessor<TemplateModule> singletonAccessor = Accessor<TemplateModule>.Instance();
+            //Accessor<OtherTemplateModule> singletonOtherAccessor = Accessor<OtherTemplateModule>.Instance();
 
-            /*                       
-             module.data1 = something;
-             if(otherModule.data1==x)  do something;
-             
-             */
+            foreach (var dictEntry in singletonAccessor.GetAllModules())
+            {
+                TemplateModule mod = dictEntry.Value;
+                //OtherTemplateModule otherModule = singletonOtherAccessor.TryGetModule(dictEntry.Key);
+
+                //Operations sur module
+                mod.objectTr.position = new Vector2(mod.objectTr.position.x + 0.01f, mod.objectTr.position.y);
+
+                /*                       
+                 module.data1 = something;
+                 if(otherModule.data1==x)  do something;
+
+                 */
+
+            }
 
         }
-
     }
+
 }
