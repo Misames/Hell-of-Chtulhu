@@ -22,16 +22,21 @@ namespace Player
             // Si plus de vie affiche le menu de mort
             if (currentHealth <= 0)
             {
-                DeathMenu.SetActive(true);
+                Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                Time.timeScale = 0;
+                DeathMenu.SetActive(true);
             }
         }
 
         private void Restart()
         {
             currentHealth = MAXHEALTH;
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.J)) this.TakeDamage(20);
         }
     }
 }

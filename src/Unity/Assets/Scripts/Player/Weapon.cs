@@ -18,6 +18,7 @@ namespace Player
         public Camera Cam;
         public TextMeshProUGUI BulletsTxt;
 
+        public int weaponSelected = 0;
         private void Start()
         {
             Cursor.visible = false;
@@ -34,15 +35,13 @@ namespace Player
                     Shoot();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.R))
-                Reload();
+            else if (Input.GetKeyDown(KeyCode.R)) Reload();
         }
 
         private void Shoot()
         {
             if (Physics.Raycast(Cam.transform.position, Cam.transform.forward, out var hit, RANGE))
             {
-                // Debug.Log($"Obj hit : {hit.transform.name}");
                 var target = hit.transform.GetComponent<Enemy>();
                 if (target != null)
                 {
@@ -83,5 +82,16 @@ namespace Player
         {
             BulletsTxt.text = $"{currentBullets} / {bulletsLeft}";
         }
+        private void SelectWeapon()
+        {
+            int i = 0;
+            foreach (Transform weapon in transform)
+            {
+                if (i == weaponSelected) weapon.gameObject.SetActive(true);
+                else weapon.gameObject.SetActive(false);
+                ++i;
+            }
+        }
     }
+
 }

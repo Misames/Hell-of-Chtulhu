@@ -13,9 +13,10 @@ namespace Player
         {
             var hit = collision.gameObject;
             var health = hit.GetComponent<PlayerHealth>();
-            var test = hit.GetComponent<HealthBar>();
             if (health != null)
+            {
                 health.TakeDamage(bulletDamage);
+            }
             Destroy(gameObject);
         }
     }

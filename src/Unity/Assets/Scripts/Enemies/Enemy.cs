@@ -1,5 +1,5 @@
-﻿using Player;
-using UnityEngine;
+﻿using UnityEngine;
+using Player;
 
 namespace Enemies
 {
@@ -10,15 +10,13 @@ namespace Enemies
         public float health = 100f;
         private PlayerHealth _PlayerHealth;
         private Weapon _weapon;
-
         public GameObject healBox;
         public GameObject ammoBox;
 
         public void TakeDamage(float amount)
         {
             health -= amount;
-            if (health <= 0f)
-                Die();
+            if (health <= 0f) Die();
         }
         private void Die()
         {
@@ -36,16 +34,12 @@ namespace Enemies
                     break;
                 case 3:
                     break;
-
                 default:
                     Debug.Log("error Random");
                     break;
             }
             Destroy(gameObject);
-            if (OnEnemyKilled != null)
-            {
-                OnEnemyKilled();
-            }
+            if (OnEnemyKilled != null) OnEnemyKilled();
         }
     }
 }

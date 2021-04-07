@@ -20,14 +20,4 @@ public class HealthBar : MonoBehaviour
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            currentHealth -= 20;
-            this.SetHeath(currentHealth);
-        }
-
-    }
-
 }

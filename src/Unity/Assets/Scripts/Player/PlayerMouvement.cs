@@ -19,10 +19,7 @@ namespace Player
         private void Update()
         {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-            if (isGrounded && velocity.y < 0)
-                velocity.y = -2f;
-
+            if (isGrounded && velocity.y < 0) velocity.y = -2f;
             if (Input.GetKey(KeyCode.LeftShift) && sprintDuration > 0)
             {
                 sprintSpeed = 12f;
@@ -33,8 +30,7 @@ namespace Player
                 sprintSpeed = 0f;
                 if (sprintDuration <= 0)
                 {
-                    if (timeRecoverySprint > 0)
-                        timeRecoverySprint -= Time.deltaTime;
+                    if (timeRecoverySprint > 0) timeRecoverySprint -= Time.deltaTime;
                     else
                     {
                         timeRecoverySprint = 5f;
