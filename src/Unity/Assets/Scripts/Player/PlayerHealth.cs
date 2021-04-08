@@ -12,12 +12,10 @@ namespace Player
         {
             // initialise la vie et la HealBar du Player
             currentHealth = MAXHEALTH;
-            healthBar.SetMaxHeath(MAXHEALTH);
         }
         public void TakeDamage(float damage)
         {
             currentHealth -= damage;
-            healthBar.SetHeath(currentHealth);
 
             // Si plus de vie affiche le menu de mort
             if (currentHealth <= 0)
