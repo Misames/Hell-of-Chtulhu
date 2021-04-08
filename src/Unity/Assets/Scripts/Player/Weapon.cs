@@ -22,7 +22,6 @@ namespace Player
         private void Start()
         {
             Cursor.visible = false;
-            UpdateBullets();
         }
 
         private void Update()
@@ -36,6 +35,7 @@ namespace Player
                 }
             }
             else if (Input.GetKeyDown(KeyCode.R)) Reload();
+            BulletsTxt.text = $"{currentBullets} / {bulletsLeft}";
         }
 
         private void Shoot()
@@ -51,7 +51,6 @@ namespace Player
             }
             --currentBullets;
             ++bulletsConsum;
-            UpdateBullets();
         }
 
         private void Reload()
@@ -75,12 +74,6 @@ namespace Player
                 }
             }
             bulletsConsum = 0;
-            UpdateBullets();
-        }
-
-        private void UpdateBullets()
-        {
-            BulletsTxt.text = $"{currentBullets} / {bulletsLeft}";
         }
         private void SelectWeapon()
         {
