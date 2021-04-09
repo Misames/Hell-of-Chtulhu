@@ -75,6 +75,7 @@ namespace Player
             }
             bulletsConsum = 0;
         }
+
         private void SelectWeapon()
         {
             int i = 0;
@@ -86,5 +87,4 @@ namespace Player
             }
         }
     }
-
 }

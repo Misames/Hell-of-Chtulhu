@@ -25,8 +25,7 @@ namespace Player
                 if (Input.GetKeyDown("e") && health.currentHealth < health.MAXHEALTH)
                 {
                     health.currentHealth += heal;
-                    if (health.currentHealth > health.MAXHEALTH)
-                        health.currentHealth = health.MAXHEALTH;
+                    if (health.currentHealth > health.MAXHEALTH) health.currentHealth = health.MAXHEALTH;
                     Destroy(gameObject);
                 }
             }
@@ -34,20 +33,17 @@ namespace Player
 
         private void OnTriggerEnter(Collider col)
         {
-            if (col.gameObject.tag == "Player")
-                ShowGUI = true;
+            if (col.gameObject.tag == "Player") ShowGUI = true;
         }
 
         private void OnTriggerExit(Collider col)
         {
-            if (col.gameObject.tag == "Player")
-                ShowGUI = false;
+            if (col.gameObject.tag == "Player") ShowGUI = false;
         }
 
         private void OnGUI()
         {
-            if (ShowGUI == true)
-                GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 12, 200, 25), " press E to pick Heal");
+            if (ShowGUI == true) GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 12, 200, 25), " press E to pick Heal");
         }
     }
 }

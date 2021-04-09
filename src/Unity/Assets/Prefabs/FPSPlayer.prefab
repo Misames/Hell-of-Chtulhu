@@ -816,8 +816,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 226, y: -33}
-  m_SizeDelta: {x: 187.66867, y: 16.691223}
+  m_AnchoredPosition: {x: 153.94, y: -33}
+  m_SizeDelta: {x: 122.99933, y: 16.691223}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3628120165782971392
 MonoBehaviour:
@@ -882,7 +882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 3628120165782971392}
-  playerHealth: {fileID: 6256618321293611180}
+  playerHealth: {fileID: 4847666452873257139}
   gradient:
     serializedVersion: 2
     key0: {r: 1, g: 0.611645, b: 0, a: 1}

@@ -8,6 +8,7 @@ namespace Player
         public float currentHealth;
         public HealthBar healthBar;
         public GameObject DeathMenu;
+
         private void Start()
         {
             // initialise la vie et la HealBar du Player
