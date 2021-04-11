@@ -17,6 +17,7 @@ namespace Enemies
         public void TakeDamage(float amount)
         {
             health -= amount;
+            Debug.Log("life: "+health);
             if (health <= 0f)
                 Die();
         }
@@ -41,7 +42,7 @@ namespace Enemies
                     Debug.Log("error Random");
                     break;
             }
-            Level1.UpdateKill();
+            Map1.UpdateKill();
             Destroy(gameObject);
             if (OnEnemyKilled != null)
             {
