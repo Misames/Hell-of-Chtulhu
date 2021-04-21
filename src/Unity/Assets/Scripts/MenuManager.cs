@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-public class OptionMenu : MonoBehaviour
-{
 
+public class MenuManager : MonoBehaviour
+{
     public AudioMixer mainMixer;
     public Dropdown resolutionDropdown;
     private Resolution[] resolutions;
+
     private void Start()
     {
         resolutions = Screen.resolutions;
@@ -44,5 +46,15 @@ public class OptionMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
         mainMixer.SetFloat("volume", volume);
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
