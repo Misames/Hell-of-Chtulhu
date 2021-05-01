@@ -12,6 +12,7 @@ namespace Player
         private void OnCollisionEnter(Collision collision)
         {
             var hit = collision.gameObject;
+            Debug.Log(hit);
             var health = hit.GetComponent<PlayerHealth>();
             if (health != null) health.TakeDamage(bulletDamage);
             Destroy(gameObject);

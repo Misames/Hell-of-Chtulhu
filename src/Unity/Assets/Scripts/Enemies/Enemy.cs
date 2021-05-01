@@ -38,7 +38,7 @@ namespace Enemies
                     Debug.Log("error Random");
                     break;
             }
-            Level1.UpdateKill();
+            Map1.UpdateKill();
             Destroy(gameObject);
             if (OnEnemyKilled != null) OnEnemyKilled();
         }

@@ -14,23 +14,23 @@ TagManager:
   - UI
   - 
   - 
+  - Ignore
+  - 
+  - 
+  - 
   - Ground
+  - 
+  - 
+  - 
   - Player
-  - EnemyBullet
+  - 
+  - 
   - Enemy
   - 
+  - MapItem
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - EnemyWeapon
   - 
   - 
   - 
