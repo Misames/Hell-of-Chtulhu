@@ -20,7 +20,7 @@ namespace EnemyScript
         public float closestDistance;
         private Transform target;
         private Vector3 walkPoint;
-        private Status enemyStatus;
+        private Status enemyStatus = Status.patrol;
         private bool walkPointIsSet;
         private bool canMove;
         private float distanceToTarget;
@@ -30,9 +30,7 @@ namespace EnemyScript
             target = GameObject.Find("FPSPlayer").transform;
             walkPointIsSet = false;
             canMove = true;
-            enemyStatus = Status.patrol;
             agent.speed = speed;
-
         }
 
         public void SetCanMove(bool b)

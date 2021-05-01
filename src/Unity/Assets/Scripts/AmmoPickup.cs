@@ -8,16 +8,13 @@ public class ammoPickup : MonoBehaviour
     private Weapon _weapons;
     private bool _showGUI = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         _weapons = GameObject.Find("PrimaryWeapon").GetComponent<Weapon>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if (_showGUI == true)
+        if (_showGUI)
         {
             if (Input.GetKeyDown("e"))
             {
@@ -29,20 +26,16 @@ public class ammoPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-
-        if (col.gameObject.CompareTag("Player"))
-            _showGUI = true;
+        if (col.gameObject.CompareTag("Player")) _showGUI = true;
     }
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.CompareTag("Player"))
-            _showGUI = false;
+        if (col.gameObject.CompareTag("Player")) _showGUI = false;
     }
 
     private void OnGUI()
     {
-        if (_showGUI == true)
-            GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 12, 200, 25), " press E to pick Ammo");
+        if (_showGUI) GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 12, 200, 25), " press E to pick Ammo");
     }
 }
