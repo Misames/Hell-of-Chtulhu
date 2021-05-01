@@ -50,5 +50,14 @@ namespace Player
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
         }
+        private void HandleDash()
+        {
+
+        }
+
+        private void HandleSprint()
+        {
+
+        }
     }
 }
