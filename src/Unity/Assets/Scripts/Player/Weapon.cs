@@ -20,7 +20,7 @@ namespace Player
         public TextMeshProUGUI BulletsTxt;
         public ParticleSystem ShootParticle;
         private RaycastHit[] hits;
-        public GameObject gun;
+
         private void Start()
         {
             Cursor.visible = false;
@@ -43,15 +43,14 @@ namespace Player
         private void Shoot()
         {
             if (ShootParticle) ShootParticle.Play();
-            hits = null;
-            hits = Physics.RaycastAll(this.transform.position, Cam.transform.forward, 100.0F);
+            hits = Physics.RaycastAll(this.transform.position, Cam.transform.forward, 1000.0F);
             foreach (var hit in hits)
             {
-                Debug.Log(hit.collider.gameObject);
+                Debug.Log(hit.transform.name);
                 if (hit.transform.CompareTag("Enemy"))
                 {
                     var target = hit.transform.GetComponent<Enemy>();
-                    target.TakeDamage(damage);
+                    if (target != null) target.TakeDamage(damage);
                 }
             }
             --currentBullets;

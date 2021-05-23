@@ -1,13 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
 
     private bool isPause = false;
-    // private bool gameHasEnded = false;
-    // private string currentLvl = "";
     private int score = 0;
+    private string time;
     private float secElapsed = 0f;
     private float minElapsed = 0f;
     public TextMeshProUGUI timeUI;
@@ -15,74 +16,46 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject winScreen;
 
-    public void IncreaseScore()
-    {
-        score += 100;
-        scoreUI.text = $"{score}";
-    }
-
-    public void GameOver()
-    {
-        // Affiche le menu de game over
-    }
-
-    public void GameWin()
-    {
-        // affiche le menu de win avec le score
-        // propose de recommencer ou de passer au niveau suivant
-        winScreen.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        Time.timeScale = 0f;
-    }
-
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1;
-    }
-
-    public void Leave()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
     private void Update()
     {
+        if (score >= 10000) GameWin();
+        if (Input.GetKey(KeyCode.F)) IncreaseScore();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPause) ResumeGame();
+            else PauseGame();
+        }
+
         secElapsed += Time.deltaTime;
+
         if (secElapsed >= 59)
         {
             minElapsed += 1f;
             secElapsed = 0f;
         }
-        timeUI.text = Mathf.Round(minElapsed).ToString("00") + ":" + Mathf.Round(secElapsed).ToString("00"); ;
-        if (Input.GetKey(KeyCode.F)) IncreaseScore();
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            if (isPause) ResumeGame();
-            else PauseGame();
-        }
 
-        // Condition de victoire
-        if (score >= 10000) GameWin();
+        time = Mathf.Round(minElapsed).ToString("00") + ":" + Mathf.Round(secElapsed).ToString("00");
+        timeUI.text = time;
     }
 
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 0f;
         isPause = true;
+        GameObject.Find("WeaponHolder").GetComponent<WeaponSwitching>().enabled = false;
     }
 
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        isPause = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Time.timeScale = 1f;
+        isPause = false;
+        GameObject.Find("WeaponHolder").GetComponent<WeaponSwitching>().enabled = true;
     }
 
     public void GoToMainMenu()
@@ -101,4 +74,47 @@ public class GameManager : MonoBehaviour
         // set non-visible l'UI PauseMenu
         // set visible le GameObject qui contnient mon UI OPTION
     }
+
+    public void IncreaseScore()
+    {
+        score += 100;
+        scoreUI.text = $"{score}";
+    }
+
+    public void GameWin()
+    {
+        winScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0f;
+        StartCoroutine(PostRun());
+        score = 0;
+    }
+
+    IEnumerator PostRun()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("nikname", "WiZaR");
+        form.AddField("score", this.score);
+        form.AddField("time", this.time);
+        form.AddField("level", "1");
+        using (UnityWebRequest www = UnityWebRequest.Post("http://hell-of-cthulhu/post", form))
+        {
+            yield return www.SendWebRequest();
+            if (www.isNetworkError || www.isHttpError) Debug.Log(www.error);
+            else Debug.Log("Form upload complete!");
+        }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
+    }
+
+    public void Leave()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }

@@ -16,13 +16,13 @@ namespace EnemyScript
         public Transform enemyTransform;
         public GameObject attackSource;
         public GameObject projectile;
-        
+
         public int dmg = 0;
         public float attackRange;
         public float timeBetweenAttack;
-        
+
         public UnityEvent attackEvent;
-        
+
         private bool targetInAttackRange;
         private bool alreadyAttacked;
         private Transform target;
@@ -36,19 +36,15 @@ namespace EnemyScript
         void Update()
         {
             distanceToTarget = Vector3.Distance(enemyTransform.position, target.position);
-            if (distanceToTarget < attackRange)
-            {
-                //Debug.Log("attack");
-                Attacking();
-            }
+            if (distanceToTarget < attackRange) Attacking();
         }
 
         void Attacking()
         {
             if (!alreadyAttacked)
             {
-                if(attackType==AttackType.Melee) MeleeAttack();
-                else if(attackType==AttackType.Ranged) RangedAttack();
+                if (attackType == AttackType.Melee) MeleeAttack();
+                else if (attackType == AttackType.Ranged) RangedAttack();
                 alreadyAttacked = true;
                 Invoke(nameof(ResetAttack), timeBetweenAttack);
             }
@@ -59,18 +55,16 @@ namespace EnemyScript
             attackSource.transform.LookAt(target);
             Rigidbody rb = Instantiate(projectile, attackSource.transform.position, attackSource.transform.rotation).GetComponent<Rigidbody>();
             rb.GetComponent<EnemyWeapon>().SetDamage(dmg);
-
             rb.AddForce(attackSource.transform.forward * 32f, ForceMode.Impulse);
             rb.AddForce(attackSource.transform.up * 8f, ForceMode.Impulse);
-            
         }
-        
+
         void MeleeAttack()
         {
             attackSource.GetComponent<EnemyWeapon>().SetDamage(dmg);
             attackEvent.Invoke();
         }
-        
+
         void ResetAttack()
         {
             alreadyAttacked = false;

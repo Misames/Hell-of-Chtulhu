@@ -5,6 +5,7 @@ namespace Player
     public class Bullet : MonoBehaviour
     {
         public float bulletDamage;
+
         public void SetDamage(float damage = 10)
         {
             bulletDamage = damage;
