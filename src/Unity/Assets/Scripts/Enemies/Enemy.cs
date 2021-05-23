@@ -1,5 +1,4 @@
-﻿using Player;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Enemies
 {
@@ -8,9 +7,6 @@ namespace Enemies
         public delegate void EnemyKilled();
         public static event EnemyKilled OnEnemyKilled;
         public float health = 100f;
-        private PlayerHealth _PlayerHealth;
-        private Weapon _weapon;
-
         public GameObject healBox;
         public GameObject ammoBox;
 

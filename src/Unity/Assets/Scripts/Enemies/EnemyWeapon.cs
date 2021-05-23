@@ -19,8 +19,4 @@ public class EnemyWeapon : MonoBehaviour
             health.TakeDamage(weaponDamage);
         Destroy(gameObject);
     }
-
-    private void Update()
-    {
-    }
 }

@@ -18,6 +18,9 @@ namespace Player
         private float nextTimeToFire = 0f;
         private const float RANGE = 200.0f;
         
+        public GameObject attackSource;
+        public GameObject projectile;
+        
         public Camera Cam;
         public TextMeshProUGUI BulletsTxt;
         public ParticleSystem ShootParticle;
@@ -50,6 +53,15 @@ namespace Player
         {
             
             ShootParticle.Play();
+            
+            Rigidbody rb = Instantiate(projectile, attackSource.transform.position, attackSource.transform.rotation).GetComponent<Rigidbody>();
+            rb.GetComponent<PlayerProjectile>().SetDamage(damage);
+
+            rb.AddForce(attackSource.transform.forward * 64f, ForceMode.Impulse);
+            --currentBullets;
+            ++bulletsConsum;
+            
+            /*
             hits = null;
             hits = Physics.RaycastAll(this.transform.position, Cam.transform.forward, 100.0F);
             
@@ -64,18 +76,15 @@ namespace Player
                     target.TakeDamage(damage);
                 }
             }
+            */
             --currentBullets;
             ++bulletsConsum;
             UpdateBullets();
             
-        }
-        
-        void OnDrawGizmos()
-        {
-            // Draws a 5 unit long red line in front of the object
-            Gizmos.color = Color.red;
-            Vector3 direction = Cam.transform.forward * 500;
-            Gizmos.DrawRay(this.transform.position, direction);
+            
+            
+            
+            
         }
 
         private void Reload()
