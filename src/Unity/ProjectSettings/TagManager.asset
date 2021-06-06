@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - hitmarker
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - 
   - 
   - Enemy
-  - 
+  - EnemyBullet
   - MapItem
   - 
   - PlayerWeapon

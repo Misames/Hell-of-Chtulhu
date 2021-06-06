@@ -30,21 +30,12 @@ namespace Enemies
                 case 1:
                     Instantiate(ammoBox, transform.position, Quaternion.identity);
                     break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-
                 default:
                     Debug.Log("error Random");
                     break;
             }
-            Map1.UpdateKill();
             Destroy(gameObject);
-            if (OnEnemyKilled != null)
-            {
-                OnEnemyKilled();
-            }
+            if (OnEnemyKilled != null) OnEnemyKilled();
         }
 
         private void Update()

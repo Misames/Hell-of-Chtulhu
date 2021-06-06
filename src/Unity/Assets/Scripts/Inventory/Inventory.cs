@@ -29,10 +29,6 @@ public class Inventory : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            if (!InventoryONOFF)
-                ResumeGame();
-            else
-                PauseGame();
         }
         GetComponent<Canvas>().enabled = InventoryONOFF;
     }
@@ -43,20 +39,4 @@ public class Inventory : MonoBehaviour
         Inventaire_Script.Slot[numSlot] -= 1;
     }
 
-    public void ResumeGame()
-    {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        InventoryONOFF = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
-    public void PauseGame()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        pauseMenu.SetActive(true);
-
-    }
 }

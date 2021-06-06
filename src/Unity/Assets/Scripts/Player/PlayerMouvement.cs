@@ -12,17 +12,14 @@ namespace Player
         public float sprintSpeed = 0f;
         public float sprintDuration = 5f;
         public float timeRecoverySprint = 10f;
-        public float gravity = -9.81f;
+        public float gravity = -78f;
         private Vector3 velocity;
         private bool isGrounded;
 
         private void Update()
         {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-            if (isGrounded && velocity.y < 0)
-                velocity.y = -2f;
-
+            if (isGrounded && velocity.y < 0) velocity.y = -2f;
             if (Input.GetKey(KeyCode.LeftShift) && sprintDuration > 0)
             {
                 sprintSpeed = 12f;
@@ -33,8 +30,7 @@ namespace Player
                 sprintSpeed = 0f;
                 if (sprintDuration <= 0)
                 {
-                    if (timeRecoverySprint > 0)
-                        timeRecoverySprint -= Time.deltaTime;
+                    if (timeRecoverySprint > 0) timeRecoverySprint -= Time.deltaTime;
                     else
                     {
                         timeRecoverySprint = 5f;
@@ -49,7 +45,7 @@ namespace Player
             controller.Move(move * ((speed + sprintSpeed) * Time.deltaTime));
 
             if (Input.GetButtonDown("Jump") && isGrounded)
-                velocity.y = Mathf.Sqrt(3f * -2f * gravity);
+                velocity.y = Mathf.Sqrt(-6f * gravity);
 
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);

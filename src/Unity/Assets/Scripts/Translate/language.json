@@ -1,0 +1,147 @@
+{
+    "Items": [
+        {
+            "key": "AmmoPickup",
+            "texts": [
+                {
+                    "language": "en",
+                    "text": "Pickup ammo (E)"
+                },
+                {
+                    "language": "fr",
+                    "text": "Ramasser munitions (E)"
+                }
+            ]
+        },
+        {
+            "key": "ButtonQuit",
+            "texts": [
+                {
+                    "language": "en",
+                    "text": "QUIT"
+                },
+                {
+                    "language": "fr",
+                    "text": "QUITTER"
+                }
+            ]
+        },
+        {
+            "key": "MainMenu",
+            "texts": [
+                {
+                    "language": "en",
+                    "text": "Main Menu"
+                },
+                {
+                    "language": "fr",
+                    "text": "Menu Principal"
+                }
+            ]
+        },
+        {
+            "key": "ResumeGame",
+            "texts": [
+                {
+                    "language": "en",
+                    "text": "Resume"
+                },
+                {
+                    "language": "fr",
+                    "text": "Reprendre"
+                }
+            ]
+        },
+        {
+            "key": "Pause",
+            "texts": [
+                {
+                    "language": "en",
+                    "text": "PAUSE"
+                },
+                {
+                    "language": "fr",
+                    "text": "PAUSE"
+                }
+            ]
+        },
+        {
+            "key": "Win",
+            "texts": [
+                {
+                    "language": "en",
+                    "text": "Level finish !"
+                },
+                {
+                    "language": "fr",
+                    "text": "Niveau terminé !"
+                }
+            ]
+        },
+        {
+            "key": "Leave",
+            "texts": [
+                {
+                    "language": "en",
+                    "text": "LEAVE"
+                },
+                {
+                    "language": "fr",
+                    "text": "QUITTER"
+                }
+            ]
+        },
+        {
+            "key": "Retry",
+            "texts": [
+                {
+                    "language": "en",
+                    "text": "RETRY"
+                },
+                {
+                    "language": "fr",
+                    "text": "RÉESSAYEZ"
+                }
+            ]
+        },
+        {
+            "key": "GameOver",
+            "texts": [
+                {
+                    "language": "en",
+                    "text": "GAME OVER"
+                },
+                {
+                    "language": "fr",
+                    "text": "PERDU"
+                }
+            ]
+        },
+        {
+            "key": "Menu",
+            "texts": [
+                {
+                    "language": "en",
+                    "text": "Menu"
+                },
+                {
+                    "language": "fr",
+                    "text": "Menu"
+                }
+            ]
+        },
+        {
+            "key": "Campaign",
+            "texts": [
+                {
+                    "language": "en",
+                    "text": "CAMPAIGN"
+                },
+                {
+                    "language": "fr",
+                    "text": "CAMPAGNE"
+                }
+            ]
+        }
+    ]
+}

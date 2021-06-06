@@ -49,7 +49,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5374619673919506774
+--- !u!114 &3683798091863942435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1051949816600110019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd3a82ed11272f4382b9d16bf89a3a7, type: 3}
+  m_Script: {fileID: 11500000, guid: ce0edf14ba2d95e4b941406c7f78f1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDamage: 20

@@ -6,11 +6,10 @@ namespace Player
     {
         public float MAXHEALTH = 100f;
         public float currentHealth;
-        public HealthBar healthBar;
         public GameObject DeathMenu;
+
         private void Start()
         {
-            // initialise la vie et la HealBar du Player
             currentHealth = MAXHEALTH;
         }
         public void TakeDamage(float damage)
@@ -21,10 +20,10 @@ namespace Player
             // Si plus de vie affiche le menu de mort
             if (currentHealth <= 0)
             {
-                DeathMenu.SetActive(true);
+                Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                Time.timeScale = 0;
+                DeathMenu.SetActive(true);
             }
         }
 
