@@ -49,7 +49,6 @@ namespace Player
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
             {
-                Debug.Log(hit.transform.name);
                 if (hit.transform.CompareTag("Enemy"))
                 {
                     var target = hit.transform.GetComponent<Enemy>();

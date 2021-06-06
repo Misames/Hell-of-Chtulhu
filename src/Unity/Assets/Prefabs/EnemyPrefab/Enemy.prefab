@@ -185,8 +185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  healBox: {fileID: 8661740782964251627, guid: 95f14f102607b1c4581c98424f95c6c0, type: 3}
-  ammoBox: {fileID: 7518444945398765072, guid: 17076c2f206ea3847a38c1f9ab9683f3, type: 3}
+  healBox: {fileID: 478234047073449941, guid: 2b32bbb1bca7c9d4d889e96597dd88fb, type: 3}
+  ammoBox: {fileID: 6514438236807121156, guid: 8f75ddc068d4d9942a16661d4ed8ceea, type: 3}
 --- !u!114 &8368739510684022153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   projectile: {fileID: 1051949816600110019, guid: 13ec2f0c894b2fe44a9725dd9dcb44b8,
     type: 3}
   dmg: 20
-  attackRange: 200
+  attackRange: 100
   timeBetweenAttack: 1
 --- !u!114 &5264074484737814773
 MonoBehaviour:
@@ -220,9 +220,9 @@ MonoBehaviour:
   agent: {fileID: 3480095328474285646}
   enemyTransform: {fileID: 5948973439784378854}
   speed: 20
-  maxPatrolRange: 1
-  sightRange: 1
-  closestDistance: 1
+  maxPatrolRange: 10
+  sightRange: 40
+  closestDistance: 5
 --- !u!1 &6062571913911908031
 GameObject:
   m_ObjectHideFlags: 0
