@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using Player;
+﻿using Player;
+using UnityEngine;
 
 namespace Enemies
 {
@@ -20,9 +20,7 @@ namespace Enemies
         }
         private void Die()
         {
-            int spawnOnOff = Random.Range(0, 3);
-
-            switch (spawnOnOff)
+            switch (Random.Range(0, 2))
             {
                 case 0:
                     Instantiate(healBox, transform.position, Quaternion.identity);
@@ -30,15 +28,10 @@ namespace Enemies
                 case 1:
                     Instantiate(ammoBox, transform.position, Quaternion.identity);
                     break;
-                case 2:
-                    break;
-                case 3:
-                    break;
                 default:
                     Debug.Log("error Random");
                     break;
             }
-            Map1.UpdateKill();
             Destroy(gameObject);
             if (OnEnemyKilled != null) OnEnemyKilled();
         }

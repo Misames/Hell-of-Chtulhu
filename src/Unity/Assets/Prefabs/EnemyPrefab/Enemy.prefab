@@ -72,12 +72,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5948973439784378854}
   - component: {fileID: 3480095328474285646}
-  - component: {fileID: 1105872922038728020}
-  - component: {fileID: 8754791528026924698}
-  - component: {fileID: 8358641817666036518}
   - component: {fileID: 651729672611343870}
   - component: {fileID: 2791151031051383222}
   - component: {fileID: 5258180210162444185}
+  - component: {fileID: 8374920672658703960}
+  - component: {fileID: 8368739510684022153}
+  - component: {fileID: 5264074484737814773}
   m_Layer: 19
   m_Name: Enemy
   m_TagString: Enemy
@@ -123,62 +123,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1105872922038728020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5314184667442715012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42f0c3de4b218df498502458198a3a32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  healBox: {fileID: 8661740782964251627, guid: 95f14f102607b1c4581c98424f95c6c0, type: 3}
-  ammoBox: {fileID: 7518444945398765072, guid: 17076c2f206ea3847a38c1f9ab9683f3, type: 3}
---- !u!114 &8754791528026924698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5314184667442715012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 817dd7129736a4044b7c8b1ec04bbeab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackType: 0
-  enemyTransform: {fileID: 5948973439784378854}
-  attackSource: {fileID: 3022528470726400141}
-  projectile: {fileID: 652582180096488786, guid: 4d3e90104343f6d429e33f27a3dfc38a,
-    type: 3}
-  dmg: 20
-  attackRange: 10
-  timeBetweenAttack: 1
-  attackEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &8358641817666036518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5314184667442715012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4ed71b02a809241bf133754f1e5515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 3480095328474285646}
-  enemyTransform: {fileID: 137871115843198122}
-  speed: 20
-  maxPatrolRange: 10
-  sightRange: 40
-  closestDistance: 5
 --- !u!136 &651729672611343870
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -228,6 +172,57 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8374920672658703960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314184667442715012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f0c3de4b218df498502458198a3a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  healBox: {fileID: 8661740782964251627, guid: 95f14f102607b1c4581c98424f95c6c0, type: 3}
+  ammoBox: {fileID: 7518444945398765072, guid: 17076c2f206ea3847a38c1f9ab9683f3, type: 3}
+--- !u!114 &8368739510684022153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314184667442715012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817dd7129736a4044b7c8b1ec04bbeab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyTransform: {fileID: 5948973439784378854}
+  projectile: {fileID: 1051949816600110019, guid: 13ec2f0c894b2fe44a9725dd9dcb44b8,
+    type: 3}
+  dmg: 20
+  attackRange: 200
+  timeBetweenAttack: 1
+--- !u!114 &5264074484737814773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314184667442715012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4ed71b02a809241bf133754f1e5515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 3480095328474285646}
+  enemyTransform: {fileID: 5948973439784378854}
+  speed: 20
+  maxPatrolRange: 1
+  sightRange: 1
+  closestDistance: 1
 --- !u!1 &6062571913911908031
 GameObject:
   m_ObjectHideFlags: 0
