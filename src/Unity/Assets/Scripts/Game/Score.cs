@@ -1,13 +1,21 @@
-﻿using UnityEngine;
+﻿using System;
 using TMPro;
+using UnityEngine;
+
 public class Score : MonoBehaviour
 {
-    private int score = 0;
+    public static int score = 0;
     public TextMeshProUGUI textUI;
-
-    public void IncreaseScore()
+    public static void IncreaseScore(int value=100)
     {
-        score += 100;
-        textUI.text = $"{score}";
+        Score.score += value;
+        
+
+    }
+
+    private void Update()
+    {
+        Debug.Log(score);
+        textUI.text = $"{Score.score}";
     }
 }

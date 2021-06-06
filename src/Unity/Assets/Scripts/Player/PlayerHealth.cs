@@ -16,7 +16,8 @@ namespace Player
         public void TakeDamage(float damage)
         {
             currentHealth -= damage;
-
+            
+            Score.IncreaseScore(-10);
             // Si plus de vie affiche le menu de mort
             if (currentHealth <= 0)
             {

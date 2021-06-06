@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemies
 {
@@ -14,13 +16,12 @@ namespace Enemies
         {
             health -= amount;
             Debug.Log("life: "+health);
-            if (health <= 0f)
-                Die();
+            
         }
         private void Die()
         {
             int spawnOnOff = Random.Range(0, 3);
-
+            Score.IncreaseScore(100);
             switch (spawnOnOff)
             {
                 case 0:
@@ -44,6 +45,12 @@ namespace Enemies
             {
                 OnEnemyKilled();
             }
+        }
+
+        private void Update()
+        {
+            if (health <= 0f)
+                Die();
         }
     }
 }
