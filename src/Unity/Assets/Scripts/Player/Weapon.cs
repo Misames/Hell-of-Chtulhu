@@ -43,13 +43,21 @@ namespace Player
         private void Shoot()
         {
             if (ShootParticle) ShootParticle.Play();
-            hits = Physics.RaycastAll(this.transform.position, Cam.transform.forward, 1000.0F);
-            foreach (var hit in hits)
+            int layerMask = LayerMask.GetMask("Player", "MapItem");
+            layerMask = ~layerMask;
+            Ray ray = Cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
             {
-                if (hit.transform.tag == "Enemy")
+                Debug.Log(hit.transform.name);
+                if (hit.transform.CompareTag("Enemy"))
                 {
                     var target = hit.transform.GetComponent<Enemy>();
                     if (target != null) target.TakeDamage(damage);
+                    foreach (GameObject obj in GameObject.FindGameObjectsWithTag("UI"))
+                    {
+                        obj.BroadcastMessage("displayHitmarker");
+                    }
                 }
             }
             --currentBullets;
