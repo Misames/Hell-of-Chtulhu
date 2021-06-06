@@ -21,7 +21,7 @@ public class HitMarker : MonoBehaviour
     {
         Image img = gameObject.GetComponent<Image>();
         img.enabled = true;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(displayTime);
         img.enabled = false;
     }
 }

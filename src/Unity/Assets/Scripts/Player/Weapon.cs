@@ -69,7 +69,7 @@ namespace Player
             // Draws a 5 unit long red line in front of the object
             Gizmos.color = Color.red;
             Vector3 direction = Cam.transform.forward * 500;
-            Gizmos.DrawRay(this.transform.position, direction);
+            Gizmos.DrawRay(Cam.transform.position, direction);
         }
 
         private void Reload()
