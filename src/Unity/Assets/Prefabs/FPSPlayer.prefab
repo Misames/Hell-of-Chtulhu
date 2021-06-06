@@ -6103,7 +6103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6048119153471954096}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 3.163}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8894556516614513828}
@@ -6828,9 +6828,12 @@ MonoBehaviour:
   bulletsPerMag: 13
   currentBullets: 13
   reloadTime: 1.5
+  attackSource: {fileID: 0}
+  projectile: {fileID: 0}
   Cam: {fileID: 8894556516991127567}
   BulletsTxt: {fileID: 6681790224452363368}
   ShootParticle: {fileID: 0}
+  gun: {fileID: 0}
 --- !u!1 &7203208966171738962
 GameObject:
   m_ObjectHideFlags: 0
@@ -7659,7 +7662,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8894556516614513829}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.47000003, y: -0.56999993, z: 1.26}
+  m_LocalPosition: {x: 0.47000003, y: -0.56999993, z: -2.114}
   m_LocalScale: {x: 0.28988, y: 0.3615, z: 2.7691}
   m_Children:
   - {fileID: 4331641610405516492}
@@ -7731,9 +7734,13 @@ MonoBehaviour:
   bulletsPerMag: 45
   currentBullets: 30
   reloadTime: 5
+  attackSource: {fileID: 6048119153471954096}
+  projectile: {fileID: 9176179858504765671, guid: ed635cfb8f9e169419c3ed684afb2b4e,
+    type: 3}
   Cam: {fileID: 8894556516991127567}
   BulletsTxt: {fileID: 6681790224452363368}
   ShootParticle: {fileID: 8111258365543287050}
+  gun: {fileID: 0}
 --- !u!1 &8894556516911631480
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using Enemies;
 
 namespace Player
 {
-    public class Weapon : MonoBehaviour
+    public class WeaponHandler : MonoBehaviour
     {
         public int fireRate = 1;
         public float damage = 100;
@@ -51,13 +51,13 @@ namespace Player
 
         private void Shoot()
         {
-            
+            Debug.Log("shoot");
             ShootParticle.Play();
             
             Rigidbody rb = Instantiate(projectile, attackSource.transform.position, attackSource.transform.rotation).GetComponent<Rigidbody>();
-            rb.GetComponent<PlayerProjectile>().SetDamage(damage);
+            rb.GetComponent<PlayerWeapon>().SetDamage(damage);
 
-            rb.AddForce(attackSource.transform.forward * 64f, ForceMode.Impulse);
+            rb.AddForce(attackSource.transform.forward * 128f, ForceMode.Impulse);
             --currentBullets;
             ++bulletsConsum;
             
@@ -76,9 +76,10 @@ namespace Player
                     target.TakeDamage(damage);
                 }
             }
-            */
+            
             --currentBullets;
             ++bulletsConsum;
+            */
             UpdateBullets();
             
             

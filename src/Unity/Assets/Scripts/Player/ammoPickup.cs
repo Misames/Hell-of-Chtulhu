@@ -5,13 +5,13 @@ public class ammoPickup : MonoBehaviour
 {
     private int ammo = 30;
     private GameObject player;
-    private Weapon _weapons;
+    private WeaponHandler _weapons;
     private bool _showGUI = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        _weapons = GameObject.Find("PrimaryWeapon").GetComponent<Weapon>();
+        _weapons = GameObject.Find("PrimaryWeapon").GetComponent<WeaponHandler>();
     }
 
     // Update is called once per frame
