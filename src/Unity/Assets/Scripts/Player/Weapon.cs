@@ -46,8 +46,7 @@ namespace Player
             hits = Physics.RaycastAll(this.transform.position, Cam.transform.forward, 1000.0F);
             foreach (var hit in hits)
             {
-                Debug.Log(hit.transform.name);
-                if (hit.transform.CompareTag("Enemy"))
+                if (hit.transform.tag == "Enemy")
                 {
                     var target = hit.transform.GetComponent<Enemy>();
                     if (target != null) target.TakeDamage(damage);

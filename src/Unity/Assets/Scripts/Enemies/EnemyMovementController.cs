@@ -20,7 +20,7 @@ namespace EnemyScript
         public float closestDistance;
         private Transform target;
         private Vector3 walkPoint;
-        private Status enemyStatus = Status.patrol;
+        private Status enemyStatus;
         private bool walkPointIsSet;
         private bool canMove;
         private float distanceToTarget;
@@ -31,6 +31,7 @@ namespace EnemyScript
             walkPointIsSet = false;
             canMove = true;
             agent.speed = speed;
+            enemyStatus = Status.patrol;
         }
 
         public void SetCanMove(bool b)

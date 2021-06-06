@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5677801482102767106}
   - component: {fileID: 5677801482102767107}
   - component: {fileID: 5677801482102767104}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DeadZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,4 +66,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e179a050bbfda488d6ffbf4ce550cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}

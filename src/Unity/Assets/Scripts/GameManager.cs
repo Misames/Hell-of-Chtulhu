@@ -3,9 +3,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using TMPro;
+
 public class GameManager : MonoBehaviour
 {
-
     private bool isPause = false;
     private int score = 0;
     private string time;

@@ -1,5 +1,4 @@
-﻿using System;
-using Player;
+﻿using Player;
 using UnityEngine;
 
 public class EnemyWeapon : MonoBehaviour
@@ -13,9 +12,7 @@ public class EnemyWeapon : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        var hit = collision.gameObject;
-        var health = hit.GetComponent<PlayerHealth>();
-        var test = hit.GetComponent<HealthBar>();
+        var health = collision.gameObject.GetComponent<PlayerHealth>();
         if (health != null) health.TakeDamage(weaponDamage);
         Destroy(gameObject);
     }

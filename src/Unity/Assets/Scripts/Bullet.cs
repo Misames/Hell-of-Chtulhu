@@ -1,20 +1,19 @@
 ﻿using UnityEngine;
+using Player;
 
-namespace Player
+public class Bullet : MonoBehaviour
 {
-    public class Bullet : MonoBehaviour
-    {
-        public float bulletDamage;
+    public float bulletDamage;
 
-        public void SetDamage(float damage = 10)
+    public void SetDamage(float damage = 10)
+    {
+        bulletDamage = damage;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
         {
-            bulletDamage = damage;
-        }
-        private void OnCollisionEnter(Collision collision)
-        {
-            var hit = collision.gameObject;
-            Debug.Log(hit);
-            var health = hit.GetComponent<PlayerHealth>();
+            var health = GameObject.Find("Script").GetComponent<PlayerHealth>();
             if (health != null) health.TakeDamage(bulletDamage);
             Destroy(gameObject);
         }

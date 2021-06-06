@@ -2,6 +2,7 @@
 public class WeaponSwitching : MonoBehaviour
 {
     public int weaponSelected = 0;
+
     private void Start()
     {
         SelectWeapon();
@@ -9,7 +10,7 @@ public class WeaponSwitching : MonoBehaviour
 
     private void Update()
     {
-        int previousSelectedWeapon = weaponSelected;
+        var previousSelectedWeapon = weaponSelected;
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             if (weaponSelected >= transform.childCount - 1) weaponSelected = 0;
@@ -29,7 +30,7 @@ public class WeaponSwitching : MonoBehaviour
 
     private void SelectWeapon()
     {
-        int i = 0;
+        var i = 0;
         foreach (Transform weapon in transform)
         {
             if (i == weaponSelected) weapon.gameObject.SetActive(true);

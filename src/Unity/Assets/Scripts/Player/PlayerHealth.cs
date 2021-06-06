@@ -28,11 +28,5 @@ namespace Player
         {
             currentHealth = MAXHEALTH;
         }
-
-        private void Update()
-        {
-            // TMP
-            if (Input.GetKeyDown(KeyCode.J)) this.TakeDamage(20);
-        }
     }
 }

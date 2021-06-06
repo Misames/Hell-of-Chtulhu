@@ -12,7 +12,7 @@ namespace Player
         public float sprintSpeed = 0f;
         public float sprintDuration = 5f;
         public float timeRecoverySprint = 10f;
-        public float gravity = -9.81f;
+        public float gravity = -78f;
         private Vector3 velocity;
         private bool isGrounded;
 
@@ -45,19 +45,10 @@ namespace Player
             controller.Move(move * ((speed + sprintSpeed) * Time.deltaTime));
 
             if (Input.GetButtonDown("Jump") && isGrounded)
-                velocity.y = Mathf.Sqrt(3f * -2f * gravity);
+                velocity.y = Mathf.Sqrt(-6f * gravity);
 
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
-        }
-        private void HandleDash()
-        {
-
-        }
-
-        private void HandleSprint()
-        {
-
         }
     }
 }

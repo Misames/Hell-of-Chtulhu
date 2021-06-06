@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class DeadZone : MonoBehaviour
 {
-    public GameManager gameManager;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player") gameManager.RestartGame();
+        if (other.gameObject.tag == "Player") SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
