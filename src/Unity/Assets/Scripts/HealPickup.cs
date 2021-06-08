@@ -6,7 +6,6 @@ public class HealPickup : MonoBehaviour
     private int heal = 30;
     private bool ShowGUI = false;
 
-    // Update is called once per frame
     void Update()
     {
         if (ShowGUI)

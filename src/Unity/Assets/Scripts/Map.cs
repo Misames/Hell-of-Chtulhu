@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 // Class unique specifique a la premiere map
 // une map est composé de plusieurs level
-public class Map1 : MonoBehaviour
+public class Map : MonoBehaviour
 {
     // liste des objectifs
     // un objectif = un level pour le moment
@@ -36,23 +34,16 @@ public class Map1 : MonoBehaviour
         //Debug.Log("ajout cond");
         newLvlObj.AddCondition("numberKilled", successNbKill);
         newLvlObj.AddCondition("timeLimit", failureTimeLimit);
+
         // fonction a realiser en cas de reussite
         newLvlObj.SuccessAction = () =>
         {
-            Debug.Log("Bravo vous avez réussi");
-            // Lance le prochain level
-            // clear précédent objectif?
         };
 
         // fonction a realiser en cas d'echec
         newLvlObj.FailureAction = () =>
         {
-            Debug.Log("Vous avez échoué");
-            // game over
-            // retour checkpoint?
         };
-
-        Debug.Log("ajout obj");
         // on rajoute l'objectif
         listLevelObjective.Add(newLvlObj);
     }

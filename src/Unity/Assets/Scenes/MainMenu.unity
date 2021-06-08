@@ -1763,8 +1763,6 @@ GameObject:
   - component: {fileID: 451815035}
   - component: {fileID: 451815037}
   - component: {fileID: 451815036}
-  - component: {fileID: 451815039}
-  - component: {fileID: 451815038}
   m_Layer: 5
   m_Name: MenuTxt
   m_TagString: Untagged
@@ -1887,33 +1885,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451815034}
   m_CullTransparentMesh: 0
---- !u!114 &451815038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451815034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa5333936988ab345acb74d825ee3171, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &451815039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451815034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d7ad9e5463bbb44489a18a96afecc5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textStorage: []
-  textKey: Menu
-  langManager: {fileID: 0}
 --- !u!1 &543688276
 GameObject:
   m_ObjectHideFlags: 0
@@ -4294,7 +4265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textStorage: []
-  textKey: Quit
+  textKey: ButtonQuit
   langManager: {fileID: 0}
 --- !u!1 &1475813057
 GameObject:
@@ -6127,7 +6098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565f78e7180e0c945ba4a96dbfc3cf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  language: fr
+  language: en
 --- !u!114 &1795054305
 MonoBehaviour:
   m_ObjectHideFlags: 0
