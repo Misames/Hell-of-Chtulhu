@@ -20,9 +20,24 @@ namespace Player
                 Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                Time.timeScale = 0f;
                 DeathMenu.SetActive(true);
             }
         }
+        
+        public void HealPlayer(int amount)
+        {
+            if ((currentHealth + amount) > MAXHEALTH)
+            {
+                currentHealth = MAXHEALTH;
+            }
+            else
+            {
+                currentHealth += amount;
+            }
+            
+        }
+        
 
         private void Restart()
         {

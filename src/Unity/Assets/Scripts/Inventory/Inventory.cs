@@ -1,42 +1,57 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design.Serialization;
+using Player;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    private bool activation = false;
 
-    bool InventoryONOFF = false;
     public GameObject Player;
+
     private GameObject Panel;
-    public int[] Slot;
-    private Inventory Inventaire_Script;
-    public GameObject pauseMenu;
+    public int[] slot;
+    
+    
+    
+    
     void Start()
     {
-        //GetComponent<Canvas>().enabled = false;
+        GetComponent<Canvas>().enabled = false;
         Panel = transform.GetChild(0).gameObject;
-        Slot = new int[Panel.transform.childCount];
-
-        Inventaire_Script = GameObject.Find("Inventory").GetComponent<Inventory>();
-
+        slot = new int[Panel.transform.childCount];
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("i"))
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            activation = !activation;
+
+            if (!activation)
+            {
+                //Player.GetComponent<CharacterController>().enabled = true;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = false;
+                Time.timeScale = 1f;
+            }
+            else
+            {
+                //Player.GetComponent<CharacterController>().enabled = false;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                Time.timeScale = 0f;
+            }
+
+            GetComponent<Canvas>().enabled = activation;
         }
-        GetComponent<Canvas>().enabled = InventoryONOFF;
     }
-
-    void selection()
+    
+    public void updateTxt(int nrslot, string txt)
     {
-        int numSlot = transform.parent.GetSiblingIndex();
-        Inventaire_Script.Slot[numSlot] -= 1;
+        Panel.transform.GetChild(nrslot).GetChild(1).GetComponent<Text>().text = txt;
     }
-
+    
 }
