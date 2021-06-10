@@ -6,7 +6,6 @@ namespace Player
     {
         public float MAXHEALTH = 100f;
         public float currentHealth;
-        public GameObject DeathMenu;
 
         private void Start()
         {
@@ -15,12 +14,12 @@ namespace Player
         public void TakeDamage(float damage)
         {
             currentHealth -= damage;
+            Map.UpdateHealth(MAXHEALTH-currentHealth);
             if (currentHealth <= 0)
             {
                 Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                DeathMenu.SetActive(true);
             }
         }
 

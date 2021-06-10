@@ -20,6 +20,7 @@ namespace Enemies
         }
         private void Die()
         {
+            Map.UpdateKill(1);
             switch (Random.Range(0, 2))
             {
                 case 0:
