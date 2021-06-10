@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Player;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Enemies
 {
@@ -9,20 +8,20 @@ namespace Enemies
         public delegate void EnemyKilled();
         public static event EnemyKilled OnEnemyKilled;
         public float health = 100f;
+        private PlayerHealth _PlayerHealth;
+        private Weapon _weapon;
         public GameObject healBox;
         public GameObject ammoBox;
 
         public void TakeDamage(float amount)
         {
             health -= amount;
-            Debug.Log("life: "+health);
-            
+            if (health <= 0f) Die();
         }
         private void Die()
         {
-            int spawnOnOff = Random.Range(0, 3);
-            Score.IncreaseScore(100);
-            switch (spawnOnOff)
+            Map.UpdateKill(1);
+            switch (Random.Range(0, 2))
             {
                 case 0:
                     Instantiate(healBox, transform.position, Quaternion.identity);
@@ -36,12 +35,6 @@ namespace Enemies
             }
             Destroy(gameObject);
             if (OnEnemyKilled != null) OnEnemyKilled();
-        }
-
-        private void Update()
-        {
-            if (health <= 0f)
-                Die();
         }
     }
 }

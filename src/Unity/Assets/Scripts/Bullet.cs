@@ -17,5 +17,9 @@ public class Bullet : MonoBehaviour
             if (health != null) health.TakeDamage(bulletDamage);
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "Ground")
+        {
+            Destroy(gameObject);
+        }
     }
 }

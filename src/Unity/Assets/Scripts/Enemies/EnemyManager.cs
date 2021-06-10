@@ -9,7 +9,7 @@ namespace Enemies
         // Start is called before the first frame update
         void Start()
         {
-            SpawnNewEnemy();
+        for(int i=0;i<20;i++)SpawnNewEnemy();
         }
         void OnEnable()
         {

@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (score >= 10000) GameWin();
         if (Input.GetKey(KeyCode.F)) IncreaseScore();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
