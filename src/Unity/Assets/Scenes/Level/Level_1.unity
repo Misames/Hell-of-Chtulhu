@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 755108947}
   m_Layer: 12
   m_Name: Terrain_0_0_89d50340-abf2-49f2-8c82-43019c54b9ee
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -483,7 +483,7 @@ GameObject:
   - component: {fileID: 1423316711}
   m_Layer: 8
   m_Name: TerrainGroup_0
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -635,7 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565f78e7180e0c945ba4a96dbfc3cf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  language: en
+  language: fr
 --- !u!4 &2036011959
 Transform:
   m_ObjectHideFlags: 0
