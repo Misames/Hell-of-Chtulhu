@@ -4,10 +4,22 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using TMPro;
 
+public class Score
+{
+    public string pseudo;
+    public float time;
+    public int score;
+    public int idNiveau;
+}
+
+
 public class GameManager : MonoBehaviour
 {
+    private int id_level;
     private bool isPause = false;
     private int score = 0;
+    private string pseudo;
+    private int bestScore;
     private string time;
     private float secElapsed = 0f;
     private float minElapsed = 0f;
@@ -15,6 +27,16 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreUI;
     public GameObject pauseMenu;
     public GameObject winScreen;
+    public GameObject daethScreen;
+
+
+    private void Start()
+    {
+        string[] subs = SceneManager.GetActiveScene().name.Split('_');
+        this.id_level = int.Parse(subs[1]);
+        this.pseudo = "WiZaR";
+        StartCoroutine(GetBestScore("http://hell-of-cthulhu/api.php?action=get_best_score&pseudo=" + this.pseudo + "&id_niveau=" + this.id_level));
+    }
 
     private void Update()
     {
@@ -57,15 +79,26 @@ public class GameManager : MonoBehaviour
         GameObject.Find("WeaponHolder").GetComponent<WeaponSwitching>().enabled = true;
     }
 
-    public void GoToMainMenu()
+    public void RestartGame()
     {
-        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
+    }
+
+    public void Leave()
+    {
         SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void GoToOption()
@@ -86,34 +119,70 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0f;
-        StartCoroutine(PostRun());
+
+        if (this.bestScore == -1) StartCoroutine(PostRun());
+        else if (this.score > this.bestScore) StartCoroutine(UpdateBestRun());
         score = 0;
+    }
+
+    public void GameOver()
+    {
+        daethScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0f;
+        score = 0;
+    }
+
+    IEnumerator UpdateBestRun()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("action", "update_rank");
+        form.AddField("id_niveau", this.id_level);
+        form.AddField("pseudo", this.pseudo);
+        form.AddField("score", this.score);
+        form.AddField("temps", this.time);
+        using (UnityWebRequest www = UnityWebRequest.Post("http://hell-of-cthulhu/api.php", form))
+        {
+            yield return www.SendWebRequest();
+            if (www.isNetworkError || www.isHttpError) Debug.Log(www.error);
+        }
     }
 
     IEnumerator PostRun()
     {
         WWWForm form = new WWWForm();
-        form.AddField("nikname", "WiZaR");
+        form.AddField("action", "insert_rank");
+        form.AddField("id_niveau", this.id_level);
+        form.AddField("pseudo", this.pseudo);
         form.AddField("score", this.score);
-        form.AddField("time", this.time);
-        form.AddField("level", "1");
-        using (UnityWebRequest www = UnityWebRequest.Post("http://hell-of-cthulhu/post", form))
+        form.AddField("temps", this.time);
+        using (UnityWebRequest www = UnityWebRequest.Post("http://hell-of-cthulhu/api.php", form))
         {
             yield return www.SendWebRequest();
             if (www.isNetworkError || www.isHttpError) Debug.Log(www.error);
-            else Debug.Log("Form upload complete!");
         }
     }
 
-    public void RestartGame()
+    IEnumerator GetBestScore(string uri)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1;
+        UnityWebRequest uwr = UnityWebRequest.Get(uri);
+        yield return uwr.SendWebRequest();
+        if (uwr.isNetworkError) Debug.Log("Error While Sending: " + uwr.error);
+        else
+        {
+            Debug.Log(uwr.downloadHandler.text);
+            if (uwr.downloadHandler.text == "false")
+            {
+                Debug.Log("il est false le batard");
+                this.bestScore = -1;
+            }
+            else
+            {
+                var myObject = JsonUtility.FromJson<Score>(uwr.downloadHandler.text);
+                this.bestScore = myObject.score;
+                Debug.Log(this.bestScore);
+            }
+        }
     }
-
-    public void Leave()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
 }

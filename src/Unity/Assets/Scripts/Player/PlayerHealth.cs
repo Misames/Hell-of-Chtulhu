@@ -14,18 +14,13 @@ namespace Player
         public void TakeDamage(float damage)
         {
             currentHealth -= damage;
-            Map.UpdateHealth(MAXHEALTH-currentHealth);
+            Map.UpdateHealth(MAXHEALTH - currentHealth);
             if (currentHealth <= 0)
             {
                 Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
-        }
-
-        private void Restart()
-        {
-            currentHealth = MAXHEALTH;
         }
     }
 }
