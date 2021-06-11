@@ -9,11 +9,13 @@ public class Select : MonoBehaviour
     private Inventory inventory_script;
     private GameObject player;
     private PlayerHealth health;
+    private Weapon _weapons;
 
      void Start()
     {
         inventory_script = GameObject.Find("Inventory").GetComponent<Inventory>();
-        health = GameObject.Find("FPSPlayer").GetComponent<PlayerHealth>();
+        health = GameObject.Find("Script").GetComponent<PlayerHealth>();
+        _weapons = GameObject.Find("PrimaryWeapon").GetComponent<Weapon>();
     }
 
     public void Selection()
@@ -31,7 +33,16 @@ public class Select : MonoBehaviour
             {
                 case 0:
                     health.HealPlayer(30);
-                    break;    
+                    Debug.Log("heallllll");
+                    break;   
+                
+                case 1:
+                    health.HealPlayer(30);
+                    break;
+                
+                case 2:
+                    _weapons.bulletsLeft += 30;
+                    break;
             }
         }
         
