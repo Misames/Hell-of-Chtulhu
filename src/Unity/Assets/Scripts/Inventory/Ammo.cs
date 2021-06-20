@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
-using Player;
-public class HealPickup : MonoBehaviour
-{
 
+public class Ammo : MonoBehaviour
+{
     private Inventory inventory_script;
 
     void Start()
@@ -14,8 +13,8 @@ public class HealPickup : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            inventory_script.slot[0] += 1;
-            inventory_script.updateTxt(0, inventory_script.slot[0].ToString());
+            inventory_script.slot[2] += 1;
+            inventory_script.updateTxt(2, inventory_script.slot[2].ToString());
             Destroy(gameObject);
         }
     }

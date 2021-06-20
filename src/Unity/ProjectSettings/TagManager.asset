@@ -8,6 +8,8 @@ TagManager:
   - hitmarker
   - UI
   - Ground
+  - Slot
+  - Slot (2)
   layers:
   - Default
   - TransparentFX

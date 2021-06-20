@@ -22,5 +22,24 @@ namespace Player
                 Cursor.visible = true;
             }
         }
+
+        public void HealPlayer(int amount)
+        {
+            if ((currentHealth + amount) > MAXHEALTH)
+            {
+                currentHealth = MAXHEALTH;
+            }
+            else
+            {
+                currentHealth += amount;
+            }
+
+        }
+
+
+        private void Restart()
+        {
+            currentHealth = MAXHEALTH;
+        }
     }
 }

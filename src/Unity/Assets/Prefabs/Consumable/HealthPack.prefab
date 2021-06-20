@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 626387920065410757}
   - component: {fileID: 3604790615109184719}
-  - component: {fileID: 3501037658662698660}
-  - component: {fileID: 2806049425006326085}
+  - component: {fileID: 4121756976174210143}
   m_Layer: 21
   m_Name: HealthPack
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +46,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 4, z: 4}
   m_Center: {x: 0, y: 2, z: 0}
---- !u!114 &3501037658662698660
+--- !u!114 &4121756976174210143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,25 +58,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681963990804cfa4cb8351b8b67bfd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &2806049425006326085
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478234047073449941}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 592a06fba3584ca4baaa6e264123a851, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &8620183526343463132
 BoxCollider:
   m_ObjectHideFlags: 0
