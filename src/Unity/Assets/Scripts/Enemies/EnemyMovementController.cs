@@ -86,6 +86,11 @@ namespace EnemyScript
 
         private void ChaseTarget()
         {
+            enemyTransform.LookAt(target.position);
+            Quaternion temp = enemyTransform.rotation;
+            temp.x = 0;
+            temp.z = 0;
+            enemyTransform.rotation = temp;
             Vector3 targetCircle = enemyTransform.position - target.position;
             //Debug.Log(targetCircle);
             targetCircle = targetCircle.normalized * closestDistance;

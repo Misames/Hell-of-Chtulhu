@@ -5,8 +5,15 @@ using UnityEngine.AI;
 
 namespace EnemyScript
 {
+    
     public class EnemyAttackController : MonoBehaviour
     {
+        public enum AttackType
+        {
+            ranged,
+            melee
+        }
+
         public Transform enemyTransform;
         public GameObject projectile;
         public int dmg = 0;
@@ -14,6 +21,8 @@ namespace EnemyScript
         public float timeBetweenAttack;
         private bool targetInAttackRange;
         private bool alreadyAttacked;
+
+        public AttackType attackType = AttackType.ranged;
         private Transform target;
         private float distanceToTarget;
 
@@ -39,16 +48,27 @@ namespace EnemyScript
 
             if (!alreadyAttacked)
             {
-                Rigidbody rb = Instantiate(projectile, enemyTransform.position, enemyTransform.rotation).GetComponent<Rigidbody>();
-                rb.GetComponent<Bullet>().SetDamage(dmg);
-
-                rb.AddForce(enemyTransform.forward * 32f, ForceMode.Impulse);
-                rb.AddForce(enemyTransform.up * 8f, ForceMode.Impulse);
+                if(attackType==AttackType.ranged) RangedAttack();
+                if(attackType==AttackType.melee) MeleeAttack();
                 alreadyAttacked = true;
                 Invoke(nameof(ResetAttack), timeBetweenAttack);
+                
             }
         }
 
+        void RangedAttack()
+        {
+            Rigidbody rb = Instantiate(projectile, enemyTransform.position, enemyTransform.rotation).GetComponent<Rigidbody>();
+            rb.GetComponent<EnemyProjectile>().SetDamage(dmg);
+
+            rb.AddForce(enemyTransform.forward * 32f, ForceMode.Impulse);
+            rb.AddForce(enemyTransform.up * 8f, ForceMode.Impulse);
+        }
+        void MeleeAttack()
+        {
+            Animator anim = GetComponent<Animator>();
+            anim.SetTrigger("AttackTrigger");
+        }
         void ResetAttack()
         {
             alreadyAttacked = false;
