@@ -61,10 +61,7 @@ public class TextManager : MonoBehaviour
         int i = 0;
         while (i < textList.Length)
         {
-            if (String.Equals(textList[i].key, textName))
-            {
-                return textList[i].texts;
-            }
+            if (String.Equals(textList[i].key, textName)) return textList[i].texts;
             i += 1;
         }
         return null;

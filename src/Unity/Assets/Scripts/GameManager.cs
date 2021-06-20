@@ -171,17 +171,11 @@ public class GameManager : MonoBehaviour
         if (uwr.isNetworkError) Debug.Log("Error While Sending: " + uwr.error);
         else
         {
-            Debug.Log(uwr.downloadHandler.text);
-            if (uwr.downloadHandler.text == "false")
-            {
-                Debug.Log("il est false le batard");
-                this.bestScore = -1;
-            }
+            if (uwr.downloadHandler.text == "false") this.bestScore = -1;
             else
             {
                 var myObject = JsonUtility.FromJson<Score>(uwr.downloadHandler.text);
                 this.bestScore = myObject.score;
-                Debug.Log(this.bestScore);
             }
         }
     }

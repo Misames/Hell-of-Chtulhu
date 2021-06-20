@@ -2,13 +2,20 @@
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
 public class MenuManager : MonoBehaviour
 {
     public AudioMixer mainMixer;
     public Dropdown resolutionDropdown;
     private Resolution[] resolutions;
+
+    public GameObject form;
+    public GameObject bg;
+
+    private string pseudo;
 
     private void Start()
     {
@@ -27,6 +34,32 @@ public class MenuManager : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
+
+    public void LogIn()
+    {
+        // tester la connexion
+        form.SetActive(false);
+        bg.SetActive(true);
+        StartCoroutine(test());
+    }
+
+    IEnumerator test()
+    {
+        WWWForm test = new WWWForm();
+        test.AddField("action", "insert_user");
+        test.AddField("pseudo", this.pseudo);
+        using (UnityWebRequest www = UnityWebRequest.Post("http://hell-of-cthulhu/api.php", test))
+        {
+            yield return www.SendWebRequest();
+            if (www.isNetworkError || www.isHttpError) Debug.Log(www.error);
+        }
+    }
+
+    public void UpdateInput(string s)
+    {
+        this.pseudo = s;
+    }
+
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];

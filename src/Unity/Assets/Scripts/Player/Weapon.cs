@@ -43,7 +43,7 @@ namespace Player
         private void Shoot()
         {
             if (ShootParticle) ShootParticle.Play();
-            int layerMask = LayerMask.GetMask("Player", "MapItem");
+            int layerMask = LayerMask.GetMask("Player", "MapItem", "Zone");
             layerMask = ~layerMask;
             Ray ray = Cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
             RaycastHit hit;
