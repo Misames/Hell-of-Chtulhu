@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Test : MonoBehaviour
+public class ZoneSpawn : MonoBehaviour
 {
     public GameObject enemyManager;
     private void OnTriggerEnter(Collider other)
