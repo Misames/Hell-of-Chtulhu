@@ -11,10 +11,8 @@ public class MenuManager : MonoBehaviour
     public AudioMixer mainMixer;
     public Dropdown resolutionDropdown;
     private Resolution[] resolutions;
-
     public GameObject form;
     public GameObject bg;
-
     private string pseudo;
 
     private void Start()

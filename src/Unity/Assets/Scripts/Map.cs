@@ -20,7 +20,6 @@ public class Map : MonoBehaviour
         // pour test on ajoute les différents niveau ici
         // peut être rajouter un systeme ou des fonctions pour mieux inserer
         InitLevel();
-
     }
 
     // cree les conditions du premier niveau
@@ -30,14 +29,18 @@ public class Map : MonoBehaviour
         LevelObjective newLvlObj = new LevelObjective("Tuer des ennemies", "Tué 5 ennemies avant la fin du temps");
 
         // cree les conditions
-        Condition successNbKill = new Condition(0, 10, true);
+        Condition successNbKill = new Condition(0, 100000, true);
         Condition failureDamageTaken = new Condition(0, 100, false);
         Condition failureTimeLimit = new Condition(0, 30, false);
+        Condition hitZone = new Condition(0f, 1f, true);
+        Condition succesScore = new Condition(0f, 100000f, true);
 
         // on ajoute les conditions au LevelObjectif
         newLvlObj.AddCondition("numberKilled", successNbKill);
         newLvlObj.AddCondition("damageTaken", failureDamageTaken);
         newLvlObj.AddCondition("timeLimit", failureTimeLimit);
+        newLvlObj.AddCondition("HitTheZone", hitZone);
+        // newLvlObj.AddCondition("IncreaseScore", succesScore);
 
         // fonction a realiser en cas de reussite
         // Lance le prochain level
@@ -61,6 +64,16 @@ public class Map : MonoBehaviour
     public static void UpdateHealth(float value)
     {
         listLevelObjective[0].UpdateObjective("damageTaken", value, true);
+    }
+
+    public static void UpdateScore(int value = 100)
+    {
+        listLevelObjective[0].UpdateObjective("IncreaseScore", value, true);
+    }
+
+    public static void UpdateZone()
+    {
+        listLevelObjective[0].UpdateObjective("HitTheZone", 1f, true);
     }
 
     // les conditions a update constament

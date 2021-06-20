@@ -6,18 +6,30 @@ namespace Enemies
     {
         public Transform[] m_SpawnPoints;
         public GameObject m_EnemyPrefab;
+        public static int currentMaxEnemies = 5; //max d'ennemies durant la vague
+        public static int enemiesLeftToSpawn = 20; // descend à chaque spawn
+
+        public static int nbEnemiesSpawned = 0;
+
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
-        for(int i=0;i<20;i++)SpawnNewEnemy();
+            for (int i = 0; i < currentMaxEnemies; i++)
+            {
+                SpawnNewEnemy();
+            }
         }
-        void OnEnable()
+
+        private void Update()
         {
-            Enemy.OnEnemyKilled += SpawnNewEnemy;
+            if (nbEnemiesSpawned < currentMaxEnemies && enemiesLeftToSpawn > 0) SpawnNewEnemy();
         }
+
         // Update is called once per frame
         void SpawnNewEnemy()
         {
+            enemiesLeftToSpawn--;
+            nbEnemiesSpawned++;
             int randomSpawn = Mathf.RoundToInt((Random.Range(0f, m_SpawnPoints.Length - 1f)));
             Instantiate(m_EnemyPrefab, m_SpawnPoints[randomSpawn].transform.position, Quaternion.identity);
         }

@@ -21,6 +21,7 @@ namespace Enemies
         private void Die()
         {
             Map.UpdateKill(1);
+            EnemyManager.nbEnemiesSpawned--;
             switch (Random.Range(0, 2))
             {
                 case 0:
@@ -28,9 +29,6 @@ namespace Enemies
                     break;
                 case 1:
                     Instantiate(ammoBox, transform.position, Quaternion.identity);
-                    break;
-                default:
-                    Debug.Log("error Random");
                     break;
             }
             Destroy(gameObject);

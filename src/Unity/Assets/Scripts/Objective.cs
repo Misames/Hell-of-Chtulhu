@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System;
-using UnityEngine;
 
 public class Condition
 {
@@ -35,7 +34,6 @@ public class LevelObjective
 
     public void AddCondition(string name, Condition newObj)
     {
-        Debug.Log(newObj.limitValue);
         conditionList.Add(name, newObj);
     }
 
