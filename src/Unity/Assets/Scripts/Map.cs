@@ -38,7 +38,7 @@ public class Map : MonoBehaviour
         // on ajoute les conditions au LevelObjectif
         newLvlObj.AddCondition("numberKilled", successNbKill);
         newLvlObj.AddCondition("damageTaken", failureDamageTaken);
-        newLvlObj.AddCondition("timeLimit", failureTimeLimit);
+        // newLvlObj.AddCondition("timeLimit", failureTimeLimit);
         newLvlObj.AddCondition("HitTheZone", hitZone);
         // newLvlObj.AddCondition("IncreaseScore", succesScore);
 
@@ -79,6 +79,6 @@ public class Map : MonoBehaviour
     // les conditions a update constament
     private void Update()
     {
-        listLevelObjective[0].UpdateObjective("timeLimit", Time.time - levelStartTime, true);
+        // listLevelObjective[0].UpdateObjective("timeLimit", Time.time - levelStartTime, true);
     }
 }

@@ -38,15 +38,15 @@ public class MenuManager : MonoBehaviour
         // tester la connexion
         form.SetActive(false);
         bg.SetActive(true);
-        StartCoroutine(test());
+        StartCoroutine(InsertPlayer());
     }
 
-    IEnumerator test()
+    IEnumerator InsertPlayer()
     {
-        WWWForm test = new WWWForm();
-        test.AddField("action", "insert_user");
-        test.AddField("pseudo", this.pseudo);
-        using (UnityWebRequest www = UnityWebRequest.Post("http://hell-of-cthulhu/api.php", test))
+        WWWForm form = new WWWForm();
+        form.AddField("action", "insert_user");
+        form.AddField("pseudo", this.pseudo);
+        using (UnityWebRequest www = UnityWebRequest.Post("http://hell-of-cthulhu/api.php", form))
         {
             yield return www.SendWebRequest();
             if (www.isNetworkError || www.isHttpError) Debug.Log(www.error);

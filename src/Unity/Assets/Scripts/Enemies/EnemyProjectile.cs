@@ -3,13 +3,13 @@ using Player;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    
     public float weaponDamage;
-    
+
     public void SetDamage(float damage = 10)
     {
         weaponDamage = damage;
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -18,9 +18,6 @@ public class EnemyProjectile : MonoBehaviour
             if (health != null) health.TakeDamage(weaponDamage);
             Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "Ground")
-        {
-            Destroy(gameObject);
-        }
+        if (collision.gameObject.tag == "Ground") Destroy(gameObject);
     }
 }

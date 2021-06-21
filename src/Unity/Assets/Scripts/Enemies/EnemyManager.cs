@@ -8,10 +8,8 @@ namespace Enemies
         public GameObject m_EnemyPrefab;
         public static int currentMaxEnemies = 5; //max d'ennemies durant la vague
         public static int enemiesLeftToSpawn = 20; // descend à chaque spawn
-
         public static int nbEnemiesSpawned = 0;
 
-        // Start is called before the first frame update
         private void Start()
         {
             for (int i = 0; i < currentMaxEnemies; i++)
@@ -25,7 +23,6 @@ namespace Enemies
             if (nbEnemiesSpawned < currentMaxEnemies && enemiesLeftToSpawn > 0) SpawnNewEnemy();
         }
 
-        // Update is called once per frame
         void SpawnNewEnemy()
         {
             enemiesLeftToSpawn--;
@@ -34,5 +31,4 @@ namespace Enemies
             Instantiate(m_EnemyPrefab, m_SpawnPoints[randomSpawn].transform.position, Quaternion.identity);
         }
     }
-
 }

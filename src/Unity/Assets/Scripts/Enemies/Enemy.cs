@@ -18,6 +18,7 @@ namespace Enemies
             health -= amount;
             if (health <= 0f) Die();
         }
+
         private void Die()
         {
             Map.UpdateKill(1);

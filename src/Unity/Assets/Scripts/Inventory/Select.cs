@@ -17,15 +17,12 @@ public class Select : MonoBehaviour
 
     public void Selection()
     {
-        //numéro du slot
-
+        // numéro du slot
         int nrslot = transform.parent.GetSiblingIndex();
-
         if (inventory_script.slot[nrslot] > 0)
         {
             inventory_script.slot[nrslot] -= 1;
             inventory_script.updateTxt(nrslot, inventory_script.slot[nrslot].ToString());
-
             switch (nrslot)
             {
                 case 0:

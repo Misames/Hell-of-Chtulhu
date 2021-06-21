@@ -15,24 +15,19 @@ public class Inventory : MonoBehaviour
         slot = new int[Panel.transform.childCount];
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            Cursor.lockState = CursorLockMode.None;
             activation = !activation;
-
             if (!activation)
             {
-                //Player.GetComponent<CharacterController>().enabled = true;
-                Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = false;
                 Time.timeScale = 1f;
             }
             else
             {
-                //Player.GetComponent<CharacterController>().enabled = false;
-                Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 Time.timeScale = 0f;
             }
