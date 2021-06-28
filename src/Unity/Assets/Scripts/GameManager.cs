@@ -12,7 +12,6 @@ public class Score
     public int idNiveau;
 }
 
-
 public class GameManager : MonoBehaviour
 {
     private int id_level;

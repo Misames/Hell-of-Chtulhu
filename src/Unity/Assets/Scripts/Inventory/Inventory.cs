@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     private bool activation = false;
-    public GameObject Player;
     private GameObject Panel;
+    public GameObject Player;
     public int[] slot;
 
     void Start()
@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
             if (!activation)
             {
                 Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 Time.timeScale = 1f;
             }
             else

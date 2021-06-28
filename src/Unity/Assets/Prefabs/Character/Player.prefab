@@ -5317,8 +5317,6 @@ GameObject:
   - component: {fileID: 5228453900803481180}
   - component: {fileID: 3905338054101389928}
   - component: {fileID: 7179183025670054330}
-  - component: {fileID: 5128691969840343883}
-  - component: {fileID: 4723300872784877698}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -5441,33 +5439,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5128691969840343883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1150111011971961187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d7ad9e5463bbb44489a18a96afecc5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textStorage: []
-  textKey: Win
-  langManager: {fileID: 0}
---- !u!114 &4723300872784877698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1150111011971961187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa5333936988ab345acb74d825ee3171, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1516528820820398872
 GameObject:
   m_ObjectHideFlags: 0
@@ -10499,8 +10470,6 @@ GameObject:
   - component: {fileID: 1507343436981498531}
   - component: {fileID: 7085704241321195003}
   - component: {fileID: 8218443767403047576}
-  - component: {fileID: 2634143882811408382}
-  - component: {fileID: 8582527330001656929}
   m_Layer: 0
   m_Name: TitleTxt
   m_TagString: Untagged
@@ -10623,33 +10592,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2634143882811408382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4125029982459569760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d7ad9e5463bbb44489a18a96afecc5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textStorage: []
-  textKey: GameOver
-  langManager: {fileID: 0}
---- !u!114 &8582527330001656929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4125029982459569760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa5333936988ab345acb74d825ee3171, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4478018363693602947
 GameObject:
   m_ObjectHideFlags: 0
@@ -13251,8 +13193,6 @@ GameObject:
   - component: {fileID: 7818722541704665004}
   - component: {fileID: 2692661106772844983}
   - component: {fileID: 4621017977439654081}
-  - component: {fileID: 3958645045320228181}
-  - component: {fileID: 1765224596682202848}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -13377,33 +13317,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3958645045320228181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9180230365791271428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d7ad9e5463bbb44489a18a96afecc5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textStorage: []
-  textKey: Retry
-  langManager: {fileID: 0}
---- !u!114 &1765224596682202848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9180230365791271428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa5333936988ab345acb74d825ee3171, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1434779436260916690
 PrefabInstance:
   m_ObjectHideFlags: 0
