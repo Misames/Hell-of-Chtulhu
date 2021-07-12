@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
@@ -28,10 +29,34 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject winScreen;
     public GameObject daethScreen;
-
-
+    public GameObject player;
+    public Inventory inventory;
+    private int LastHealthbox;
+    private int Healthbox;
+    private int Ammobox;
+    
+    
+    
+    
     private void Start()
     {
+        inventory= GameObject.Find("Inventory").GetComponent<Inventory>();
+        if (PlayerPrefs.GetInt("load")== 1)
+        {
+            float x = PlayerPrefs.GetFloat("x");
+            float y = PlayerPrefs.GetFloat("y");
+            float z = PlayerPrefs.GetFloat("z");
+
+            player.transform.position = new Vector3(x, y, z);
+            Healthbox = PlayerPrefs.GetInt("Healthbox");
+            Ammobox = PlayerPrefs.GetInt("Ammobox");
+            inventory.slot[0] = Healthbox;
+            inventory.updateTxt(0, inventory.slot[0].ToString());
+            inventory.slot[1] = Ammobox; 
+            inventory.updateTxt(1, inventory.slot[1].ToString());
+            
+            
+        }
         string[] subs = SceneManager.GetActiveScene().name.Split('_');
         this.id_level = int.Parse(subs[1]);
         this.pseudo = "WiZaR";
@@ -95,12 +120,16 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void GoToMainMenu()
+    public void save()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        PlayerPrefs.SetString("scene",SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetFloat("x",player.transform.position.x);
+        PlayerPrefs.SetFloat("y",player.transform.position.y);
+        PlayerPrefs.SetFloat("z",player.transform.position.z);
+        
+        PlayerPrefs.SetInt("Healthbox",inventory.slot[0]);
+        PlayerPrefs.SetInt("Ammobox",inventory.slot[1]);
     }
-
     public void GoToOption()
     {
         // set non-visible l'UI PauseMenu

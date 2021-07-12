@@ -13,8 +13,8 @@ public class Ammo : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            inventory_script.slot[2] += 1;
-            inventory_script.updateTxt(2, inventory_script.slot[2].ToString());
+            inventory_script.slot[1] += 1;
+            inventory_script.updateTxt(1, inventory_script.slot[1].ToString());
             Destroy(gameObject);
         }
     }

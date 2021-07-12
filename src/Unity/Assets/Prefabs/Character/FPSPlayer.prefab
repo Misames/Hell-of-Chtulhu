@@ -5149,7 +5149,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Save & Menu
+  m_text: Save
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5306,6 +5306,9 @@ MonoBehaviour:
   pauseMenu: {fileID: 1516528820820398872}
   winScreen: {fileID: 5152856984407618137}
   daethScreen: {fileID: 6378529444780990808}
+  player: {fileID: 8894556516911631480}
+  inventory: {fileID: 9175536971595462546, guid: 6aadf74e14c5d004aa33a474446e95c7,
+    type: 3}
 --- !u!1 &1150111011971961187
 GameObject:
   m_ObjectHideFlags: 0
@@ -11529,7 +11532,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 26733149150245400}
-        m_MethodName: GoToMainMenu
+        m_MethodName: save
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
