@@ -17,6 +17,7 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        PlayerPrefs.SetInt("load",0);
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
@@ -82,6 +83,15 @@ public class MenuManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadParty()
+    {
+        if (PlayerPrefs.HasKey("x"))
+        {
+            PlayerPrefs.SetInt("load",1);
+            SceneManager.LoadScene(PlayerPrefs.GetString("scene"));
+        }
     }
 
     public void QuitGame()
