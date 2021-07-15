@@ -32,5 +32,5 @@ public class TriggerCutscene : MonoBehaviour
         player.SetActive(true);
         CutsceneCam.SetActive(false);
     }
-    
+
 }
