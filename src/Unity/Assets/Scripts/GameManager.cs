@@ -31,10 +31,11 @@ public class GameManager : MonoBehaviour
     public GameObject daethScreen;
     public GameObject player;
     public Inventory inventory;
-    private int LastHealthbox;
     private int Healthbox;
     private int Ammobox;
-    
+    private float x;
+    private float y;
+    private float z;
     
     
     
@@ -43,9 +44,9 @@ public class GameManager : MonoBehaviour
         inventory= GameObject.Find("Inventory").GetComponent<Inventory>();
         if (PlayerPrefs.GetInt("load")== 1)
         {
-            float x = PlayerPrefs.GetFloat("x");
-            float y = PlayerPrefs.GetFloat("y");
-            float z = PlayerPrefs.GetFloat("z");
+            x = PlayerPrefs.GetFloat("x");
+            y = PlayerPrefs.GetFloat("y");
+            z = PlayerPrefs.GetFloat("z");
 
             player.transform.position = new Vector3(x, y, z);
             Healthbox = PlayerPrefs.GetInt("Healthbox");
@@ -54,8 +55,6 @@ public class GameManager : MonoBehaviour
             inventory.updateTxt(0, inventory.slot[0].ToString());
             inventory.slot[1] = Ammobox; 
             inventory.updateTxt(1, inventory.slot[1].ToString());
-            
-            
         }
         string[] subs = SceneManager.GetActiveScene().name.Split('_');
         this.id_level = int.Parse(subs[1]);
@@ -112,7 +111,9 @@ public class GameManager : MonoBehaviour
 
     public void Leave()
     {
+        save();
         SceneManager.LoadScene("MainMenu");
+        
     }
 
     public void QuitGame()
@@ -123,10 +124,12 @@ public class GameManager : MonoBehaviour
     public void save()
     {
         PlayerPrefs.SetString("scene",SceneManager.GetActiveScene().name);
-        PlayerPrefs.SetFloat("x",player.transform.position.x);
-        PlayerPrefs.SetFloat("y",player.transform.position.y);
-        PlayerPrefs.SetFloat("z",player.transform.position.z);
-        
+        x = player.transform.position.x;
+        y = player.transform.position.y;
+        z = player.transform.position.z;
+        PlayerPrefs.SetFloat("x",x);
+        PlayerPrefs.SetFloat("y",y);
+        PlayerPrefs.SetFloat("z",z);
         PlayerPrefs.SetInt("Healthbox",inventory.slot[0]);
         PlayerPrefs.SetInt("Ammobox",inventory.slot[1]);
     }
