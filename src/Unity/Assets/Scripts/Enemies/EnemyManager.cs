@@ -23,7 +23,7 @@ namespace Enemies
             if (nbEnemiesSpawned < currentMaxEnemies && enemiesLeftToSpawn > 0) SpawnNewEnemy();
         }
 
-        void SpawnNewEnemy()
+        private void SpawnNewEnemy()
         {
             enemiesLeftToSpawn--;
             nbEnemiesSpawned++;

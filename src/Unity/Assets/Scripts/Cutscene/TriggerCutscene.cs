@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class TriggerCutscene : MonoBehaviour
 {
-
     public GameObject player;
     public GameObject CutsceneCam;
 
@@ -25,12 +22,10 @@ public class TriggerCutscene : MonoBehaviour
         }
     }
 
-
     IEnumerator FinCutscene()
     {
         yield return new WaitForSeconds(4);
         player.SetActive(true);
         CutsceneCam.SetActive(false);
     }
-
 }

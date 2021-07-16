@@ -14,10 +14,11 @@ public class MenuManager : MonoBehaviour
     public GameObject form;
     public GameObject bg;
     private string pseudo;
+    private string mdp;
 
     private void Start()
     {
-        PlayerPrefs.SetInt("load",0);
+        PlayerPrefs.SetInt("load", 0);
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
@@ -36,10 +37,28 @@ public class MenuManager : MonoBehaviour
 
     public void LogIn()
     {
-        // tester la connexion
-        form.SetActive(false);
-        bg.SetActive(true);
-        StartCoroutine(InsertPlayer());
+        StartCoroutine(getPlayer("http://hell-of-cthulhu/api.php?action=get_player&pseudo=" + this.pseudo + "&mdp=" + this.mdp));
+    }
+
+    IEnumerator getPlayer(string uri)
+    {
+        UnityWebRequest uwr = UnityWebRequest.Get(uri);
+        yield return uwr.SendWebRequest();
+        if (uwr.isNetworkError) Debug.Log("Error While Sending: " + uwr.error);
+        else
+        {
+            if (uwr.downloadHandler.text != "false")
+            {
+                var myObject = JsonUtility.FromJson<Score>(uwr.downloadHandler.text); ;
+                form.SetActive(false);
+                bg.SetActive(true);
+            }
+            else
+            {
+                form.SetActive(true);
+                bg.SetActive(false);
+            }
+        }
     }
 
     IEnumerator InsertPlayer()
@@ -54,9 +73,14 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void UpdateInput(string s)
+    public void UpdatePseudo(string s)
     {
         this.pseudo = s;
+    }
+
+    public void UpdateMdp(string s)
+    {
+        this.mdp = s;
     }
 
     public void SetResolution(int resolutionIndex)
@@ -89,7 +113,7 @@ public class MenuManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("x"))
         {
-            PlayerPrefs.SetInt("load",1);
+            PlayerPrefs.SetInt("load", 1);
             SceneManager.LoadScene(PlayerPrefs.GetString("scene"));
         }
     }

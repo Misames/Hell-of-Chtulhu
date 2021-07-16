@@ -29,7 +29,7 @@ public class Map : MonoBehaviour
         LevelObjective newLvlObj = new LevelObjective("Tuer des ennemies", "Tué 5 ennemies avant la fin du temps");
 
         // cree les conditions
-        Condition successNbKill = new Condition(0, 100000, true);
+        Condition successNbKill = new Condition(0, 20, true);
         Condition failureDamageTaken = new Condition(0, 100, false);
         Condition failureTimeLimit = new Condition(0, 30, false);
         Condition hitZone = new Condition(0f, 1f, true);
