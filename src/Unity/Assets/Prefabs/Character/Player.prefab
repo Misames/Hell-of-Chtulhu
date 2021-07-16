@@ -5307,7 +5307,7 @@ MonoBehaviour:
   winScreen: {fileID: 5152856984407618137}
   daethScreen: {fileID: 6378529444780990808}
   player: {fileID: 8894556516911631480}
-  inventory: {fileID: 7836072076635327037}
+  inventory: {fileID: 0}
 --- !u!1 &1150111011971961187
 GameObject:
   m_ObjectHideFlags: 0
@@ -11473,7 +11473,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 26733149150245400}
-        m_MethodName: save
+        m_MethodName: Leave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -18,7 +19,7 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.SetInt("load", 0);
+        Time.timeScale = 1;
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
@@ -33,6 +34,11 @@ public class MenuManager : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+    }
+
+    private void Awake()
+    {
+        PlayerPrefs.SetInt("load",0);
     }
 
     public void LogIn()
