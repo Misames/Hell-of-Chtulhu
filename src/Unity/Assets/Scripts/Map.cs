@@ -31,7 +31,7 @@ public class Map : MonoBehaviour
         // cree les conditions
         Condition successNbKill = new Condition(0, 100000, true);
         Condition failureDamageTaken = new Condition(0, 100, false);
-        Condition failureTimeLimit = new Condition(0, 30, false);
+        Condition failureTimeLimit = new Condition(0, 90, false);
         Condition hitZone = new Condition(0f, 1f, true);
         Condition succesScore = new Condition(0f, 100000f, true);
 
