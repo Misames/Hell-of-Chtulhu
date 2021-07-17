@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
@@ -35,9 +34,7 @@ public class GameManager : MonoBehaviour
     private float x;
     private float y;
     private float z;
-    
-    
-    
+
     private void Start()
     {
         if (PlayerPrefs.GetInt("load") == 1)
@@ -111,7 +108,7 @@ public class GameManager : MonoBehaviour
     {
         save();
         SceneManager.LoadScene("MainMenu");
-        
+
     }
 
     public void QuitGame()
@@ -121,15 +118,15 @@ public class GameManager : MonoBehaviour
 
     public void save()
     {
-        PlayerPrefs.SetString("scene",SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetString("scene", SceneManager.GetActiveScene().name);
         x = player.transform.position.x;
         y = player.transform.position.y;
         z = player.transform.position.z;
-        PlayerPrefs.SetFloat("x",x);
-        PlayerPrefs.SetFloat("y",y);
-        PlayerPrefs.SetFloat("z",z);
-        PlayerPrefs.SetInt("Healthbox",inventory.slot[0]);
-        PlayerPrefs.SetInt("Ammobox",inventory.slot[1]);
+        PlayerPrefs.SetFloat("x", x);
+        PlayerPrefs.SetFloat("y", y);
+        PlayerPrefs.SetFloat("z", z);
+        PlayerPrefs.SetInt("Healthbox", inventory.slot[0]);
+        PlayerPrefs.SetInt("Ammobox", inventory.slot[1]);
     }
     public void GoToOption()
     {

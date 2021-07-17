@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Player;
+
 public class HealPickup : MonoBehaviour
 {
 

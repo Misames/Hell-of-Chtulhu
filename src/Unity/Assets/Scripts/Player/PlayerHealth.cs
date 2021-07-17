@@ -26,16 +26,10 @@ namespace Player
         public void HealPlayer(int amount)
         {
             if ((currentHealth + amount) > MAXHEALTH)
-            {
                 currentHealth = MAXHEALTH;
-            }
             else
-            {
                 currentHealth += amount;
-            }
-
         }
-
 
         private void Restart()
         {

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -38,7 +37,7 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("load",0);
+        PlayerPrefs.SetInt("load", 0);
     }
 
     public void LogIn()

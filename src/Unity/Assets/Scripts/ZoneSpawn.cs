@@ -2,6 +2,7 @@
 
 public class ZoneSpawn : MonoBehaviour
 {
+    public bool zoneClear = false;
     public GameObject enemyManager;
     private void OnTriggerEnter(Collider other)
     {
