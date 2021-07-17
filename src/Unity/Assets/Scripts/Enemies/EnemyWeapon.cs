@@ -1,12 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Player;
 
 public class EnemyWeapon : MonoBehaviour
 {
-    
     public float weaponDamage;
-    
+
     public void SetDamage(float damage = 10)
     {
         weaponDamage = damage;
@@ -14,12 +12,10 @@ public class EnemyWeapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject);
         if (other.gameObject.tag == "Player")
         {
             var health = GameObject.Find("Script").GetComponent<PlayerHealth>();
             if (health != null) health.TakeDamage(weaponDamage);
-            
         }
     }
 }

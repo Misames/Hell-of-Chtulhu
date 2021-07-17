@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
@@ -12,7 +11,6 @@ public class Score
     public int score;
     public int idNiveau;
 }
-
 
 public class GameManager : MonoBehaviour
 {
@@ -36,16 +34,13 @@ public class GameManager : MonoBehaviour
     private float x;
     private float y;
     private float z;
-    
-    
-    
+
     private void Start()
     {
-        inventory= GameObject.Find("Inventory").GetComponent<Inventory>();
-        if (PlayerPrefs.GetInt("load")== 1)
+        if (PlayerPrefs.GetInt("load") == 1)
         {
             x = PlayerPrefs.GetFloat("x");
-            y = PlayerPrefs.GetFloat("y");
+            y = PlayerPrefs.GetFloat("y") + 2;
             z = PlayerPrefs.GetFloat("z");
 
             player.transform.position = new Vector3(x, y, z);
@@ -53,7 +48,7 @@ public class GameManager : MonoBehaviour
             Ammobox = PlayerPrefs.GetInt("Ammobox");
             inventory.slot[0] = Healthbox;
             inventory.updateTxt(0, inventory.slot[0].ToString());
-            inventory.slot[1] = Ammobox; 
+            inventory.slot[1] = Ammobox;
             inventory.updateTxt(1, inventory.slot[1].ToString());
         }
         string[] subs = SceneManager.GetActiveScene().name.Split('_');
@@ -113,7 +108,19 @@ public class GameManager : MonoBehaviour
     {
         save();
         SceneManager.LoadScene("MainMenu");
-        
+
+    }
+
+    public void retry()
+    {
+        if (PlayerPrefs.HasKey("x"))
+        {
+            SceneManager.LoadScene(PlayerPrefs.GetString("scene"));
+            PlayerPrefs.SetInt("load", 1);
+           
+            Time.timeScale = 1;
+        }
+            
     }
 
     public void QuitGame()
@@ -123,15 +130,15 @@ public class GameManager : MonoBehaviour
 
     public void save()
     {
-        PlayerPrefs.SetString("scene",SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetString("scene", SceneManager.GetActiveScene().name);
         x = player.transform.position.x;
         y = player.transform.position.y;
         z = player.transform.position.z;
-        PlayerPrefs.SetFloat("x",x);
-        PlayerPrefs.SetFloat("y",y);
-        PlayerPrefs.SetFloat("z",z);
-        PlayerPrefs.SetInt("Healthbox",inventory.slot[0]);
-        PlayerPrefs.SetInt("Ammobox",inventory.slot[1]);
+        PlayerPrefs.SetFloat("x", x);
+        PlayerPrefs.SetFloat("y", y);
+        PlayerPrefs.SetFloat("z", z);
+        PlayerPrefs.SetInt("Healthbox", inventory.slot[0]);
+        PlayerPrefs.SetInt("Ammobox", inventory.slot[1]);
     }
     public void GoToOption()
     {

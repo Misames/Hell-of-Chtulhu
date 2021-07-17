@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class TriggerCutscene : MonoBehaviour
 {
-
     public GameObject player;
     public GameObject CutsceneCam;
     public GameObject[] ennemis;
@@ -31,7 +30,6 @@ public class TriggerCutscene : MonoBehaviour
         }
     }
 
-
     IEnumerator FinCutscene()
     {
         yield return new WaitForSeconds(4);
@@ -42,5 +40,4 @@ public class TriggerCutscene : MonoBehaviour
             ennemis[i].GetComponent<EnemyMovementController>().enabled = true;
         }
     }
-    
 }

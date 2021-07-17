@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -15,6 +14,7 @@ public class MenuManager : MonoBehaviour
     public GameObject form;
     public GameObject bg;
     private string pseudo;
+    private string mdp;
 
     private void Start()
     {
@@ -37,32 +37,63 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("load",0);
+        PlayerPrefs.SetInt("load", 0);
     }
 
     public void LogIn()
     {
-        // tester la connexion
-        form.SetActive(false);
-        bg.SetActive(true);
-        StartCoroutine(test());
+        StartCoroutine(getPlayer("http://hell-of-cthulhu/api.php?action=get_player&pseudo=" + this.pseudo + "&mdp=" + this.mdp));
     }
 
-    IEnumerator test()
+    IEnumerator getPlayer(string uri)
     {
-        WWWForm test = new WWWForm();
-        test.AddField("action", "insert_user");
-        test.AddField("pseudo", this.pseudo);
-        using (UnityWebRequest www = UnityWebRequest.Post("http://hell-of-cthulhu/api.php", test))
+        UnityWebRequest uwr = UnityWebRequest.Get(uri);
+        yield return uwr.SendWebRequest();
+        if (uwr.isNetworkError)
+        {
+            Debug.Log("Error While Sending: " + uwr.error);
+            if (pseudo == "WiZaR" && mdp == "fbouscaillou")
+            {
+                form.SetActive(false);
+                bg.SetActive(true);
+            }
+        }
+        else
+        {
+            if (uwr.downloadHandler.text != "false")
+            {
+                var myObject = JsonUtility.FromJson<Score>(uwr.downloadHandler.text); ;
+                form.SetActive(false);
+                bg.SetActive(true);
+            }
+            else
+            {
+                form.SetActive(true);
+                bg.SetActive(false);
+            }
+        }
+    }
+
+    IEnumerator InsertPlayer()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("action", "insert_user");
+        form.AddField("pseudo", this.pseudo);
+        using (UnityWebRequest www = UnityWebRequest.Post("http://hell-of-cthulhu/api.php", form))
         {
             yield return www.SendWebRequest();
             if (www.isNetworkError || www.isHttpError) Debug.Log(www.error);
         }
     }
 
-    public void UpdateInput(string s)
+    public void UpdatePseudo(string s)
     {
         this.pseudo = s;
+    }
+
+    public void UpdateMdp(string s)
+    {
+        this.mdp = s;
     }
 
     public void SetResolution(int resolutionIndex)
@@ -95,7 +126,7 @@ public class MenuManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("x"))
         {
-            PlayerPrefs.SetInt("load",1);
+            PlayerPrefs.SetInt("load", 1);
             SceneManager.LoadScene(PlayerPrefs.GetString("scene"));
         }
     }

@@ -29,7 +29,7 @@ namespace EnemyScript
 
         private void Awake()
         {
-            target = GameObject.Find("FPSPlayer").transform;
+            target = GameObject.Find("Player").transform;
             walkPointIsSet = false;
             canMove = true;
             enemyStatus = Status.patrol;
@@ -62,14 +62,12 @@ namespace EnemyScript
         {
             if (!walkPointIsSet)
             {
-                //Debug.Log("newpoint");
                 SearchWalkPoint();
                 agent.SetDestination(walkPoint);
             }
 
             if (Vector3.Distance(enemyTransform.position, walkPoint) < 1)
             {
-                //Debug.Log("reached");
                 walkPointIsSet = false;
             }
         }
@@ -78,7 +76,6 @@ namespace EnemyScript
         {
             if (NavMesh.SamplePosition(new Vector3(enemyTransform.position.x + Random.Range(-maxPatrolRange, maxPatrolRange), enemyTransform.position.y, enemyTransform.position.z + Random.Range(-maxPatrolRange, maxPatrolRange)), out NavMeshHit hit, 100, NavMesh.AllAreas))
             {
-                //Debug.Log("found");
                 walkPoint = hit.position;
                 walkPointIsSet = true;
             };
@@ -92,7 +89,6 @@ namespace EnemyScript
             temp.z = 0;
             enemyTransform.rotation = temp;
             Vector3 targetCircle = enemyTransform.position - target.position;
-            //Debug.Log(targetCircle);
             targetCircle = targetCircle.normalized * closestDistance;
             agent.SetDestination(target.position + targetCircle);
         }

@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     private bool activation = false;
-    public GameObject Player;
     private GameObject Panel;
+    public GameObject Player;
     public int[] slot;
 
     void Start()
@@ -15,24 +15,20 @@ public class Inventory : MonoBehaviour
         slot = new int[Panel.transform.childCount];
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            Cursor.lockState = CursorLockMode.None;
             activation = !activation;
-
             if (!activation)
             {
-                //Player.GetComponent<CharacterController>().enabled = true;
-                Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 Time.timeScale = 1f;
             }
             else
             {
-                //Player.GetComponent<CharacterController>().enabled = false;
-                Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 Time.timeScale = 0f;
             }

@@ -26,12 +26,12 @@ public class Map : MonoBehaviour
     private void InitLevel()
     {
         // cree une liste de conditions de succes ou d'echec pour un objectif
-        LevelObjective newLvlObj = new LevelObjective("Tuer des ennemies", "Tué 5 ennemies avant la fin du temps");
+        LevelObjective newLvlObj = new LevelObjective("Tuer des ennemies", "Tué 20 ennemies avant la fin du temps");
 
         // cree les conditions
-        Condition successNbKill = new Condition(0, 100000, true);
+        Condition successNbKill = new Condition(0, 20, true);
         Condition failureDamageTaken = new Condition(0, 100, false);
-        Condition failureTimeLimit = new Condition(0, 90, false);
+        Condition failureTimeLimit = new Condition(0, 60, false);
         Condition hitZone = new Condition(0f, 1f, true);
         Condition succesScore = new Condition(0f, 100000f, true);
 
@@ -40,7 +40,7 @@ public class Map : MonoBehaviour
         newLvlObj.AddCondition("damageTaken", failureDamageTaken);
         newLvlObj.AddCondition("timeLimit", failureTimeLimit);
         newLvlObj.AddCondition("HitTheZone", hitZone);
-        // newLvlObj.AddCondition("IncreaseScore", succesScore);
+        newLvlObj.AddCondition("IncreaseScore", succesScore);
 
         // fonction a realiser en cas de reussite
         // Lance le prochain level
@@ -79,6 +79,6 @@ public class Map : MonoBehaviour
     // les conditions a update constament
     private void Update()
     {
-        listLevelObjective[0].UpdateObjective("timeLimit", Time.time - levelStartTime, true);
+        // listLevelObjective[0].UpdateObjective("timeLimit", Time.time - levelStartTime, true);
     }
 }

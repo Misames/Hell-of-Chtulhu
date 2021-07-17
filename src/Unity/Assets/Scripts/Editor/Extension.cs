@@ -5,18 +5,10 @@ namespace Editor
 {
     public class Extension : UnityEditor.Editor
     {
-        [MenuItem("Extensions/CleanBrokenReferences")]
+        [MenuItem("Extensions/GameDesign")]
         public static void ShowBrokenReferences()
         {
-            Debug.Log("Montre dans la scene actuel tous les GameObject où il manque des referances");
-        }
-
-        [MenuItem("Extensions/GenerateMap")]
-        public static void GenerateMap()
-        {
-            var window = EditorWindow.GetWindow<GenerateMapWindow>();
-            window.titleContent = new GUIContent("Generate Map Window");
-            window.Show();
+            Debug.Log("ouvre une fenetre avec la liste des variables à tweak");
         }
     }
 
