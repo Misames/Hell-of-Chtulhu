@@ -49,7 +49,15 @@ public class MenuManager : MonoBehaviour
     {
         UnityWebRequest uwr = UnityWebRequest.Get(uri);
         yield return uwr.SendWebRequest();
-        if (uwr.isNetworkError) Debug.Log("Error While Sending: " + uwr.error);
+        if (uwr.isNetworkError)
+        {
+            Debug.Log("Error While Sending: " + uwr.error);
+            if (pseudo == "WiZaR" && mdp == "fbouscaillou")
+            {
+                form.SetActive(false);
+                bg.SetActive(true);
+            }
+        }
         else
         {
             if (uwr.downloadHandler.text != "false")

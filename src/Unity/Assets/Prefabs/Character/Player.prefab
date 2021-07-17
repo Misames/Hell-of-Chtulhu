@@ -13371,6 +13371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c968c2a15e28f154385bd26f0a1f6a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 1369993682407336233}
+  weapon2: {fileID: 1867459486890750381}
+  selected_weapon: {fileID: 2025025644789026833}
 --- !u!1 &8894556516609792520
 GameObject:
   m_ObjectHideFlags: 0
@@ -13929,6 +13932,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8894556515708722560}
     m_Modifications:
+    - target: {fileID: 9175536969748452094, guid: 6aadf74e14c5d004aa33a474446e95c7,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 1369993682407336233}
+    - target: {fileID: 9175536969748452094, guid: 6aadf74e14c5d004aa33a474446e95c7,
+        type: 3}
+      propertyPath: weapon2
+      value: 
+      objectReference: {fileID: 1867459486890750381}
+    - target: {fileID: 9175536969748452094, guid: 6aadf74e14c5d004aa33a474446e95c7,
+        type: 3}
+      propertyPath: selected_weapon
+      value: 
+      objectReference: {fileID: 2025025644789026833}
     - target: {fileID: 9175536969780919496, guid: 6aadf74e14c5d004aa33a474446e95c7,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -14019,6 +14037,21 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9175536971488656867, guid: 6aadf74e14c5d004aa33a474446e95c7,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 1369993682407336233}
+    - target: {fileID: 9175536971488656867, guid: 6aadf74e14c5d004aa33a474446e95c7,
+        type: 3}
+      propertyPath: weapon2
+      value: 
+      objectReference: {fileID: 1867459486890750381}
+    - target: {fileID: 9175536971488656867, guid: 6aadf74e14c5d004aa33a474446e95c7,
+        type: 3}
+      propertyPath: selected_weapon
+      value: 
+      objectReference: {fileID: 2025025644789026833}
     - target: {fileID: 9175536971595462546, guid: 6aadf74e14c5d004aa33a474446e95c7,
         type: 3}
       propertyPath: m_Name
