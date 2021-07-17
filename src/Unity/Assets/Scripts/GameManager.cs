@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         if (PlayerPrefs.GetInt("load") == 1)
         {
             x = PlayerPrefs.GetFloat("x");
-            y = PlayerPrefs.GetFloat("y");
+            y = PlayerPrefs.GetFloat("y") + 2;
             z = PlayerPrefs.GetFloat("z");
 
             player.transform.position = new Vector3(x, y, z);
@@ -109,6 +109,18 @@ public class GameManager : MonoBehaviour
         save();
         SceneManager.LoadScene("MainMenu");
 
+    }
+
+    public void retry()
+    {
+        if (PlayerPrefs.HasKey("x"))
+        {
+            SceneManager.LoadScene(PlayerPrefs.GetString("scene"));
+            PlayerPrefs.SetInt("load", 1);
+           
+            Time.timeScale = 1;
+        }
+            
     }
 
     public void QuitGame()
