@@ -8,11 +8,16 @@ public class LanguageManager : MonoBehaviour
     {
         if (lang == 1)
         {
-            language = "fr";
+            PlayerPrefs.SetString("lang", "fr");
         }
         else
         {
-            language = "en";
+            PlayerPrefs.SetString("lang", "en");
         }
+    }
+
+    private void Update()
+    {
+        language = PlayerPrefs.GetString("lang");
     }
 }

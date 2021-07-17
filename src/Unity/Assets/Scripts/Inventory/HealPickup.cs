@@ -2,7 +2,6 @@
 
 public class HealPickup : MonoBehaviour
 {
-
     private Inventory inventory_script;
 
     private void Start()

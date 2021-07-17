@@ -23,10 +23,7 @@ public class TextStorage : MonoBehaviour
             textStorage = GameObject.Find("language").GetComponent<TextManager>().getText(textKey);
         }
 
-        if (currentLang == null)
-        {
-            currentLang = GameObject.Find("language").GetComponent<LanguageManager>().language;
-        }
+        currentLang = GameObject.Find("language").GetComponent<LanguageManager>().language;
 
         int i = 0;
         while (i < textStorage.Length)
