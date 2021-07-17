@@ -15,6 +15,7 @@ public class MenuManager : MonoBehaviour
     public GameObject bg;
     private string pseudo;
     private string mdp;
+    public LanguageManager managerLangue;
 
     private void Start()
     {
