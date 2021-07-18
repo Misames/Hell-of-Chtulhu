@@ -49,9 +49,10 @@ namespace EnemyScript
         void RangedAttack()
         {
             Rigidbody rb = Instantiate(projectile, enemyTransform.position, enemyTransform.rotation).GetComponent<Rigidbody>();
+            Vector3 dir = target.position - enemyTransform.position;
             rb.GetComponent<EnemyProjectile>().SetDamage(dmg);
-            rb.AddForce(enemyTransform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(enemyTransform.up * distanceToTarget/4, ForceMode.Impulse);
+            rb.AddForce(dir.normalized * 32f, ForceMode.Impulse);
+            rb.AddForce(enemyTransform.up * distanceToTarget/5, ForceMode.Impulse);
         }
 
         void MeleeAttack()
