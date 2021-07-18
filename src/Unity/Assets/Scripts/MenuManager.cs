@@ -34,12 +34,12 @@ public class MenuManager : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
-        PlayerPrefs.SetString("lang", "en");
     }
 
     private void Awake()
     {
         PlayerPrefs.SetInt("load", 0);
+        PlayerPrefs.SetString("lang", "en");
     }
 
     public void LogIn()
@@ -64,27 +64,16 @@ public class MenuManager : MonoBehaviour
         {
             if (uwr.downloadHandler.text != "false")
             {
-                var myObject = JsonUtility.FromJson<Score>(uwr.downloadHandler.text); ;
+                PlayerPrefs.SetString("Nickname", this.pseudo);
                 form.SetActive(false);
                 bg.SetActive(true);
+                var myObject = JsonUtility.FromJson<Score>(uwr.downloadHandler.text); ;
             }
             else
             {
                 form.SetActive(true);
                 bg.SetActive(false);
             }
-        }
-    }
-
-    IEnumerator InsertPlayer()
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("action", "insert_user");
-        form.AddField("pseudo", this.pseudo);
-        using (UnityWebRequest www = UnityWebRequest.Post("http://hell-of-cthulhu/api.php", form))
-        {
-            yield return www.SendWebRequest();
-            if (www.isNetworkError || www.isHttpError) Debug.Log(www.error);
         }
     }
 

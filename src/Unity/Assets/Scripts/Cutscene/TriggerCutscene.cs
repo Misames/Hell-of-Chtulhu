@@ -13,6 +13,7 @@ public class TriggerCutscene : MonoBehaviour
     
     private void Start()
     {
+        
         boss.GetComponent<EnemyMovementController>().enabled = false;
         for (int i = 0; i < ennemis.Length; i++)
         {

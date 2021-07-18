@@ -19,29 +19,19 @@ public class TextManager : MonoBehaviour
     }
 
     private TextDictionary[] textList;
-    private bool b = true;
 
     void readJson()
     {
         textList = CreateFromJSON(ReadString());
     }
 
-    void OnApplicationQuit()
-    {
-        WriteString();
-    }
-
-    void WriteString()
-    {
-        string path = "Assets/Scripts/Translate/language.json";
-        StreamWriter writer = new StreamWriter(path, false);
-        writer.WriteLine(SaveToString());
-        writer.Close();
-    }
-
     static string ReadString()
     {
-        string path = "Assets/Scripts/Translate/language.json";
+        string path = Application.streamingAssetsPath + "/language.json";
+
+#if UNITY_EDITOR
+        path = "Assets/StreamingAssets/language.json";
+#endif
         StreamReader reader = new StreamReader(path);
         string text = reader.ReadToEnd();
         reader.Close();
