@@ -34,7 +34,7 @@ public class TriggerCutscene : MonoBehaviour
 
     IEnumerator FinCutscene()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(7);
         player.SetActive(true);
         CutsceneCam.SetActive(false);
         for (int i = 0; i < ennemis.Length; i++)

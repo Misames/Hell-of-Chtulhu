@@ -6,16 +6,20 @@ using Random = UnityEngine.Random;
 
 namespace Enemies
 {
-    public class Enemy : MonoBehaviour
+    public class Enemy1 : MonoBehaviour
     {
         public delegate void EnemyKilled();
         public static event EnemyKilled OnEnemyKilled;
         public float health = 100f;
         private PlayerHealth _PlayerHealth;
         private Weapon _weapon;
-        public GameObject healBox;
-        public GameObject ammoBox;
-        
+        public GameManager _gameManager;
+
+        private void Start()
+        {
+            _gameManager.GetComponent<GameManager>();
+        }
+
         public void TakeDamage(float amount)
         {
             health -= amount;
@@ -26,15 +30,7 @@ namespace Enemies
         {
             Map.UpdateKill(1);
             EnemyManager.nbEnemiesSpawned--;
-            switch (Random.Range(0, 2))
-            {
-                case 0:
-                    Instantiate(healBox, transform.position, Quaternion.identity);
-                    break;
-                case 1:
-                    Instantiate(ammoBox, transform.position, Quaternion.identity);
-                    break;
-            }
+            _gameManager.GameWin();
             Destroy(gameObject);
             if (OnEnemyKilled != null) OnEnemyKilled();
         }
