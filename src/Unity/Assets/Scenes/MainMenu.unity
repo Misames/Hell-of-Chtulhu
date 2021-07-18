@@ -1751,7 +1751,7 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 1276797124}
   form: {fileID: 1055022523}
   bg: {fileID: 1646387434}
-  managerLangue: {fileID: 0}
+  managerLangue: {fileID: 92771530}
 --- !u!4 &299873677
 Transform:
   m_ObjectHideFlags: 0
