@@ -25,8 +25,6 @@ public class TextManager : MonoBehaviour
         textList = CreateFromJSON(ReadString());
     }
 
-
-
     static string ReadString()
     {
         string path = Application.streamingAssetsPath + "/language.json";
