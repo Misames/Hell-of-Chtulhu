@@ -75,8 +75,10 @@ public class GameManager : MonoBehaviour
         }
 
         time = Mathf.Round(minElapsed).ToString("00") + ":" + Mathf.Round(secElapsed).ToString("00");
-        timeUI.text = time;
+        //timeUI.text = time;
     }
+    
+    
 
     public void PauseGame()
     {

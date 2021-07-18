@@ -25,7 +25,7 @@ public class LevelObjective
     public Action SuccessAction;
     public Action FailureAction;
 
-    public LevelObjective(string title, string description)
+    public LevelObjective(string title="", string description="")
     {
         this.title = title;
         this.description = description;
@@ -36,16 +36,29 @@ public class LevelObjective
     {
         conditionList.Add(name, newObj);
     }
+    
+    public Condition GetCondition(string name)
+    {
+        return conditionList[name];
+    }
+    
+    public void RemoveCondition(string name)
+    {
+        if(conditionList.ContainsKey(name))conditionList.Remove(name);
+    }
 
     public void UpdateObjective(string name, float value, bool equal = false)
     {
-        Condition cond = conditionList[name];
-        if (equal) cond.currentValue = value;
-        else cond.currentValue += value;
-        if (cond.currentValue >= cond.limitValue)
+        if(conditionList.ContainsKey(name))
         {
-            if (cond.isSuccessCondition) SuccessAction();
-            else FailureAction();
+            Condition cond = conditionList[name];
+            if (equal) cond.currentValue = value;
+            else cond.currentValue += value;
+            if (cond.currentValue >= cond.limitValue)
+            {
+                if (cond.isSuccessCondition) SuccessAction();
+                else FailureAction();
+            }
         }
     }
 }
