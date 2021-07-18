@@ -54,7 +54,7 @@ public class Map : MonoBehaviour
         // fonction a realiser en cas de reussite
         // Lance le prochain level
         // clear précédent objectif?
-        intermediary.SuccessAction = () => gameManager.GameWin();
+        intermediary.SuccessAction = () => gameManager.IncreaseScore();
 
         // fonction a realiser en cas d'echec
         // retour checkpoint?
@@ -76,7 +76,7 @@ public class Map : MonoBehaviour
         // fonction a realiser en cas de reussite
         // Lance le prochain level
         // clear précédent objectif?
-        zone1.SuccessAction = () => gameManager.GameWin();
+        zone1.SuccessAction = () => gameManager.IncreaseScore();
 
         // fonction a realiser en cas d'echec
         // retour checkpoint?
@@ -95,22 +95,16 @@ public class Map : MonoBehaviour
         // on ajoute les conditions au LevelObjectif
         zone2.AddCondition("damageTaken", new Condition(0, 100, false));
         zone2.AddCondition("timeLimit", new Condition(0, 60, false));
-        zone2.AddCondition("numberKilled", new Condition(0, 15, true));
+        zone2.AddCondition("numberKilled", new Condition(0, 10, true));
         zone2.AddCondition("HitTheZone", new Condition(0f, 1f, true));
         zone2.AddCondition("IncreaseScore", new Condition(0f, 100000f, true));
 
         // fonction a realiser en cas de reussite
         // Lance le prochain level
         // clear précédent objectif?
-        zone2.SuccessAction = () =>
-        {
-            
-            zone2.RemoveCondition("numberKilled");
-            zone2.AddCondition("numberKilled", new Condition(0, 10, true));
-            zone2.description = "Tuer 10 autres ennemies";
-            zone2.SuccessAction = () => gameManager.GameWin();
-        };
-
+        zone2.SuccessAction = () => gameManager.IncreaseScore();
+        
+        
         // fonction a realiser en cas d'echec
         // retour checkpoint?
         zone2.FailureAction = () => gameManager.GameOver();
@@ -140,7 +134,7 @@ public class Map : MonoBehaviour
             zone3.RemoveCondition("numberKilled");
             zone3.AddCondition("numberKilled", new Condition(0, 10, true));
             zone3.description = "Tuer 10 autres ennemies";
-            zone3.SuccessAction = () => gameManager.GameWin();
+            zone3.SuccessAction = () => gameManager.IncreaseScore();
         };
 
         // fonction a realiser en cas d'echec
@@ -172,7 +166,7 @@ public class Map : MonoBehaviour
             zone4.RemoveCondition("numberKilled");
             zone4.AddCondition("numberKilled", new Condition(0, 10, true));
             zone4.description = "Tuer 10 autres ennemies";
-            zone4.SuccessAction = () => gameManager.GameWin();
+            zone4.SuccessAction = () => gameManager.IncreaseScore();
         };
 
         // fonction a realiser en cas d'echec
@@ -204,7 +198,7 @@ public class Map : MonoBehaviour
             zone5.RemoveCondition("numberKilled");
             zone5.AddCondition("numberKilled", new Condition(0, 5, true));
             zone5.description = "Tuer 5 autres ennemies";
-            zone5.SuccessAction = () => gameManager.GameWin();
+            zone5.SuccessAction = () => gameManager.IncreaseScore();
         };
 
         // fonction a realiser en cas d'echec

@@ -35,6 +35,7 @@ namespace Enemies
         {
             if (gameObject.name == "Boss")
             {
+                PlayerPrefs.SetInt("load", 0);
                 _gameManager.GameWin();
                 Destroy(gameObject);
             }

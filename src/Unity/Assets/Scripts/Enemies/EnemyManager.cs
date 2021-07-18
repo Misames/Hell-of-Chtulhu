@@ -6,8 +6,8 @@ namespace Enemies
     {
         public Transform[] m_SpawnPoints;
         public GameObject m_EnemyPrefab;
-        public static int currentMaxEnemies = 5; //max d'ennemies durant la vague
-        public static int enemiesLeftToSpawn = 20; // descend à chaque spawn
+        public static int currentMaxEnemies = 20; //max d'ennemies durant la vague
+        public static int enemiesLeftToSpawn = 40; // descend à chaque spawn
         public static int nbEnemiesSpawned = 0;
 
         private void Start()
