@@ -398,7 +398,7 @@ PrefabInstance:
     - target: {fileID: 5314184667442715012, guid: cb74f70590e0e774f985bb24f0816320,
         type: 3}
       propertyPath: m_Name
-      value: VillagerMeleeEnemy Variant
+      value: OctopusMeleeEnemy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5948973439784378854, guid: cb74f70590e0e774f985bb24f0816320,
         type: 3}
@@ -490,6 +490,11 @@ PrefabInstance:
       propertyPath: attackRange
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8368739510684022153, guid: cb74f70590e0e774f985bb24f0816320,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8379879185167942249, guid: cb74f70590e0e774f985bb24f0816320,
         type: 3}
       propertyPath: m_RootOrder
@@ -498,7 +503,7 @@ PrefabInstance:
     - target: {fileID: 8379879185167942249, guid: cb74f70590e0e774f985bb24f0816320,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.606
+      value: 1.019
       objectReference: {fileID: 0}
     - target: {fileID: 8379879185167942249, guid: cb74f70590e0e774f985bb24f0816320,
         type: 3}
@@ -508,7 +513,7 @@ PrefabInstance:
     - target: {fileID: 8379879185167942249, guid: cb74f70590e0e774f985bb24f0816320,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.288
+      value: 1.595
       objectReference: {fileID: 0}
     - target: {fileID: 8379879185167942249, guid: cb74f70590e0e774f985bb24f0816320,
         type: 3}

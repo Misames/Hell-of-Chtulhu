@@ -23,6 +23,7 @@ namespace EnemyScript
 
         private void Awake()
         {
+            //enemyTransform = gameObject.transform;
             target = GameObject.Find("Player").transform;
         }
 
@@ -50,7 +51,7 @@ namespace EnemyScript
             Rigidbody rb = Instantiate(projectile, enemyTransform.position, enemyTransform.rotation).GetComponent<Rigidbody>();
             rb.GetComponent<EnemyProjectile>().SetDamage(dmg);
             rb.AddForce(enemyTransform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(enemyTransform.up * 8f, ForceMode.Impulse);
+            rb.AddForce(enemyTransform.up * distanceToTarget/4, ForceMode.Impulse);
         }
 
         void MeleeAttack()
