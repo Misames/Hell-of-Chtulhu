@@ -9,15 +9,16 @@ public class Checkpoint : MonoBehaviour
     private GameManager _gameManager;
     private void Start()
     {
-       _gameManager = player.GetComponent<GameManager>();
+        _gameManager = player.GetComponent<GameManager>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if ( other.CompareTag("Player")) {
-            PlayerPrefs.SetFloat ("x",gameObject.transform.position.x);
-            PlayerPrefs.SetFloat("y",gameObject.transform.position.y);
-            PlayerPrefs.SetFloat("z",gameObject.transform.position.z);
+        if (other.CompareTag("Player"))
+        {
+            PlayerPrefs.SetFloat("x", gameObject.transform.position.x);
+            PlayerPrefs.SetFloat("y", gameObject.transform.position.y);
+            PlayerPrefs.SetFloat("z", gameObject.transform.position.z);
             Debug.Log("save pos");
         }
     }

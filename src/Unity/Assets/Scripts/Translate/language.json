@@ -1,132 +1,54 @@
 {
     "Items": [
         {
-            "key": "AmmoPickup",
+            "key": "Connect",
             "texts": [
                 {
-                    "language": "en",
-                    "text": "Pickup ammo (E)"
+                    "language": "fr",
+                    "text": "Connexion"
                 },
                 {
-                    "language": "fr",
-                    "text": "Ramasser munitions (E)"
+                    "language": "en",
+                    "text": "Connect"
                 }
             ]
         },
         {
-            "key": "ButtonQuit",
+            "key": "Nickname",
             "texts": [
                 {
-                    "language": "en",
-                    "text": "QUIT"
+                    "language": "fr",
+                    "text": "Pseudo"
                 },
                 {
-                    "language": "fr",
-                    "text": "QUITTER"
+                    "language": "en",
+                    "text": "Nickname"
                 }
             ]
         },
         {
-            "key": "MainMenu",
+            "key": "Password",
             "texts": [
                 {
-                    "language": "en",
-                    "text": "Main Menu"
+                    "language": "fr",
+                    "text": "Mot de passe"
                 },
                 {
-                    "language": "fr",
-                    "text": "Menu Principal"
+                    "language": "en",
+                    "text": "Password"
                 }
             ]
         },
         {
-            "key": "ResumeGame",
+            "key": "Quit",
             "texts": [
                 {
-                    "language": "en",
-                    "text": "Resume"
+                    "language": "fr",
+                    "text": "Quitter"
                 },
                 {
-                    "language": "fr",
-                    "text": "Reprendre"
-                }
-            ]
-        },
-        {
-            "key": "Pause",
-            "texts": [
-                {
                     "language": "en",
-                    "text": "PAUSE"
-                },
-                {
-                    "language": "fr",
-                    "text": "PAUSE"
-                }
-            ]
-        },
-        {
-            "key": "Win",
-            "texts": [
-                {
-                    "language": "en",
-                    "text": "Level finish !"
-                },
-                {
-                    "language": "fr",
-                    "text": "Niveau terminé !"
-                }
-            ]
-        },
-        {
-            "key": "Leave",
-            "texts": [
-                {
-                    "language": "en",
-                    "text": "LEAVE"
-                },
-                {
-                    "language": "fr",
-                    "text": "QUITTER"
-                }
-            ]
-        },
-        {
-            "key": "Retry",
-            "texts": [
-                {
-                    "language": "en",
-                    "text": "RETRY"
-                },
-                {
-                    "language": "fr",
-                    "text": "RÉESSAYEZ"
-                }
-            ]
-        },
-        {
-            "key": "GameOver",
-            "texts": [
-                {
-                    "language": "en",
-                    "text": "GAME OVER"
-                },
-                {
-                    "language": "fr",
-                    "text": "PERDU"
-                }
-            ]
-        },
-        {
-            "key": "Menu",
-            "texts": [
-                {
-                    "language": "en",
-                    "text": "Menu"
-                },
-                {
-                    "language": "fr",
-                    "text": "Menu"
+                    "text": "Quit"
                 }
             ]
         },
@@ -134,12 +56,181 @@
             "key": "Campaign",
             "texts": [
                 {
-                    "language": "en",
-                    "text": "CAMPAIGN"
+                    "language": "fr",
+                    "text": "Campagne"
                 },
                 {
+                    "language": "en",
+                    "text": "Campaign"
+                }
+            ]
+        },
+        {
+            "key": "Full",
+            "texts": [
+                {
                     "language": "fr",
-                    "text": "CAMPAGNE"
+                    "text": "Pleins Ecran"
+                },
+                {
+                    "language": "en",
+                    "text": "Full Screen"
+                }
+            ]
+        },
+        {
+            "key": "Back",
+            "texts": [
+                {
+                    "language": "fr",
+                    "text": "Retour"
+                },
+                {
+                    "language": "en",
+                    "text": "Back"
+                }
+            ]
+        },
+        {
+            "key": "NewGame",
+            "texts": [
+                {
+                    "language": "fr",
+                    "text": "Nouvelle partie"
+                },
+                {
+                    "language": "en",
+                    "text": "New Game"
+                }
+            ]
+        },
+        {
+            "key": "SelectLevel",
+            "texts": [
+                {
+                    "language": "fr",
+                    "text": "Choisir niveau"
+                },
+                {
+                    "language": "en",
+                    "text": "Select Level"
+                }
+            ]
+        },
+        {
+            "key": "Continu",
+            "texts": [
+                {
+                    "language": "fr",
+                    "text": "Continuer"
+                },
+                {
+                    "language": "en",
+                    "text": "Continu"
+                }
+            ]
+        },
+        {
+            "key": "GameOver",
+            "texts": [
+                {
+                    "language": "fr",
+                    "text": "Fin de partie"
+                },
+                {
+                    "language": "en",
+                    "text": "Game Over"
+                }
+            ]
+        },
+        {
+            "key": "Retry",
+            "texts": [
+                {
+                    "language": "fr",
+                    "text": "Réessayer"
+                },
+                {
+                    "language": "en",
+                    "text": "Retry"
+                }
+            ]
+        },
+        {
+            "key": "Leave",
+            "texts": [
+                {
+                    "language": "fr",
+                    "text": "Quitter"
+                },
+                {
+                    "language": "en",
+                    "text": "Leave"
+                }
+            ]
+        },
+        {
+            "key": "Resume",
+            "texts": [
+                {
+                    "language": "fr",
+                    "text": "Reprendre"
+                },
+                {
+                    "language": "en",
+                    "text": "Resume"
+                }
+            ]
+        },
+        {
+            "key": "Save",
+            "texts": [
+                {
+                    "language": "fr",
+                    "text": "Sauvegarder"
+                },
+                {
+                    "language": "en",
+                    "text": "Save"
+                }
+            ]
+        },
+        {
+            "key": "Save&Quit",
+            "texts": [
+                {
+                    "language": "fr",
+                    "text": "Sauvegarder et quitter"
+                },
+                {
+                    "language": "en",
+                    "text": "Save and Quit"
+                }
+            ]
+        },
+        {
+            "key": "LevelFinish",
+            "texts": [
+                {
+                    "language": "fr",
+                    "text": "Niveau fini !"
+                },
+                {
+                    "language": "en",
+                    "text": "Level finish"
+                }
+            ]
+        },
+        {
+            "key": "Replay",
+            "texts": [
+                {
+                    "language": "fr",
+                    "text": "Rejouer"
+                },
+                {
+                    "language": "en",
+                    "text": "Replay"
                 }
             ]
         }

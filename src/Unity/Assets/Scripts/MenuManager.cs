@@ -15,6 +15,7 @@ public class MenuManager : MonoBehaviour
     public GameObject bg;
     private string pseudo;
     private string mdp;
+    public LanguageManager managerLangue;
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class MenuManager : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        PlayerPrefs.SetString("lang", "en");
     }
 
     private void Awake()

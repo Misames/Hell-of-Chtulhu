@@ -4,37 +4,37 @@ using System;
 public class TextStorage : MonoBehaviour
 {
 
-    public TextManager.TextDict[] textStorage;
+    private TextManager.TextDict[] textStorage;
     public string textKey;
-
     private string text;
     private string currentLang;
-    [SerializeField]
-    private LanguageManager langManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        langManager = GameObject.Find("textManager").GetComponent<LanguageManager>();
-        textStorage = GameObject.Find("textManager").GetComponent<TextManager>().getText(textKey);
-        currentLang = langManager.language;
+        currentLang = GameObject.Find("language").GetComponent<LanguageManager>().language;
+        textStorage = GameObject.Find("language").GetComponent<TextManager>().getText(textKey);
     }
 
     public string getText()
     {
         if (textKey != null)
         {
-            textStorage = GameObject.Find("textManager").GetComponent<TextManager>().getText(textKey);
+            textStorage = GameObject.Find("language").GetComponent<TextManager>().getText(textKey);
         }
+
+        currentLang = GameObject.Find("language").GetComponent<LanguageManager>().language;
+
         int i = 0;
         while (i < textStorage.Length)
         {
-            if (String.Equals(textStorage[i].language, langManager.language))
+            if (String.Equals(textStorage[i].language, currentLang))
             {
                 return textStorage[i].text;
             }
-            ++i;
+            i += 1;
         }
+
         return "error";
     }
 }

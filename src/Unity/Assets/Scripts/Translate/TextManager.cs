@@ -10,16 +10,18 @@ public class TextManager : MonoBehaviour
         public string language;
         public string text;
     }
+
     [Serializable]
     public struct TextDictionary
     {
         public string key;
         public TextDict[] texts;
     }
-    public TextDictionary[] textList;
 
-    // Start is called before the first frame update
-    void Start()
+    private TextDictionary[] textList;
+    private bool b = true;
+
+    void readJson()
     {
         textList = CreateFromJSON(ReadString());
     }
@@ -58,10 +60,14 @@ public class TextManager : MonoBehaviour
 
     public TextDict[] getText(string textName)
     {
+        readJson();
         int i = 0;
         while (i < textList.Length)
         {
-            if (String.Equals(textList[i].key, textName)) return textList[i].texts;
+            if (String.Equals(textList[i].key, textName))
+            {
+                return textList[i].texts;
+            }
             i += 1;
         }
         return null;
