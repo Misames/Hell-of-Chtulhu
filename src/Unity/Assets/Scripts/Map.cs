@@ -37,7 +37,9 @@ public class Map : MonoBehaviour
         initZoneIntermediary();
         initZone1();
         initZone2();
-
+        initZone3();
+        initZone4();
+        initZone5();
     }
     
     private void initZoneIntermediary()
@@ -65,11 +67,11 @@ public class Map : MonoBehaviour
     private void initZone1()
     {
         // cree une liste de conditions de succes ou d'echec pour un objectif
-        LevelObjective zone1 = new LevelObjective("Tuer des ennemies", "Tué 20 ennemies avant la fin du temps");
+        LevelObjective zone1 = new LevelObjective("Tuer des ennemies", "Tué 10 ennemies avant la fin du temps");
 
         zone1.AddCondition("damageTaken", new Condition(0, 100, false));
         zone1.AddCondition("timeLimit", new Condition(0, 60, false));
-        zone1.AddCondition("numberKilled", new Condition(0, 20, true));
+        zone1.AddCondition("numberKilled", new Condition(0, 10, true));
 
         // fonction a realiser en cas de reussite
         // Lance le prochain level
@@ -93,7 +95,7 @@ public class Map : MonoBehaviour
         // on ajoute les conditions au LevelObjectif
         zone2.AddCondition("damageTaken", new Condition(0, 100, false));
         zone2.AddCondition("timeLimit", new Condition(0, 60, false));
-        zone2.AddCondition("numberKilled", new Condition(0, 20, true));
+        zone2.AddCondition("numberKilled", new Condition(0, 15, true));
         zone2.AddCondition("HitTheZone", new Condition(0f, 1f, true));
         zone2.AddCondition("IncreaseScore", new Condition(0f, 100000f, true));
 
@@ -116,14 +118,107 @@ public class Map : MonoBehaviour
         // on rajoute l'objectif
         listLevelObjective.Add(zone2);
     }
+    
+    private void initZone3()
+    {
+        // cree une liste de conditions de succes ou d'echec pour un objectif
+        LevelObjective zone3 = new LevelObjective("Tuer des ennemies", "Tuer 20 ennemies avant la fin du temps");
+
+        // on ajoute les conditions au LevelObjectif
+        zone3.AddCondition("damageTaken", new Condition(0, 100, false));
+        zone3.AddCondition("timeLimit", new Condition(0, 60, false));
+        zone3.AddCondition("numberKilled", new Condition(0, 20, true));
+        zone3.AddCondition("HitTheZone", new Condition(0f, 1f, true));
+        zone3.AddCondition("IncreaseScore", new Condition(0f, 100000f, true));
+
+        // fonction a realiser en cas de reussite
+        // Lance le prochain level
+        // clear précédent objectif?
+        zone3.SuccessAction = () =>
+        {
+            
+            zone3.RemoveCondition("numberKilled");
+            zone3.AddCondition("numberKilled", new Condition(0, 10, true));
+            zone3.description = "Tuer 10 autres ennemies";
+            zone3.SuccessAction = () => gameManager.GameWin();
+        };
+
+        // fonction a realiser en cas d'echec
+        // retour checkpoint?
+        zone3.FailureAction = () => gameManager.GameOver();
+
+        // on rajoute l'objectif
+        listLevelObjective.Add(zone3);
+    }
+    
+    private void initZone4()
+    {
+        // cree une liste de conditions de succes ou d'echec pour un objectif
+        LevelObjective zone4 = new LevelObjective("Tuer des ennemies", "Tuer 20 ennemies avant la fin du temps");
+
+        // on ajoute les conditions au LevelObjectif
+        zone4.AddCondition("damageTaken", new Condition(0, 100, false));
+        zone4.AddCondition("timeLimit", new Condition(0, 60, false));
+        zone4.AddCondition("numberKilled", new Condition(0, 20, true));
+        zone4.AddCondition("HitTheZone", new Condition(0f, 1f, true));
+        zone4.AddCondition("IncreaseScore", new Condition(0f, 100000f, true));
+
+        // fonction a realiser en cas de reussite
+        // Lance le prochain level
+        // clear précédent objectif?
+        zone4.SuccessAction = () =>
+        {
+            
+            zone4.RemoveCondition("numberKilled");
+            zone4.AddCondition("numberKilled", new Condition(0, 10, true));
+            zone4.description = "Tuer 10 autres ennemies";
+            zone4.SuccessAction = () => gameManager.GameWin();
+        };
+
+        // fonction a realiser en cas d'echec
+        // retour checkpoint?
+        zone4.FailureAction = () => gameManager.GameOver();
+
+        // on rajoute l'objectif
+        listLevelObjective.Add(zone4);
+    }
+    
+    private void initZone5()
+    {
+        // cree une liste de conditions de succes ou d'echec pour un objectif
+        LevelObjective zone5 = new LevelObjective("Tuer des ennemies", "Tuer 20 ennemies avant la fin du temps");
+
+        // on ajoute les conditions au LevelObjectif
+        zone5.AddCondition("damageTaken", new Condition(0, 100, false));
+        zone5.AddCondition("timeLimit", new Condition(0, 60, false));
+        zone5.AddCondition("numberKilled", new Condition(0, 25, true));
+        zone5.AddCondition("HitTheZone", new Condition(0f, 1f, true));
+        zone5.AddCondition("IncreaseScore", new Condition(0f, 100000f, true));
+
+        // fonction a realiser en cas de reussite
+        // Lance le prochain level
+        // clear précédent objectif?
+        zone5.SuccessAction = () =>
+        {
+            
+            zone5.RemoveCondition("numberKilled");
+            zone5.AddCondition("numberKilled", new Condition(0, 5, true));
+            zone5.description = "Tuer 5 autres ennemies";
+            zone5.SuccessAction = () => gameManager.GameWin();
+        };
+
+        // fonction a realiser en cas d'echec
+        // retour checkpoint?
+        zone5.FailureAction = () => gameManager.GameOver();
+
+        // on rajoute l'objectif
+        listLevelObjective.Add(zone5);
+    }
 
     public static void ChangeCurrentZone(int zoneNumber)
     {
-        
-        
         currentZone = zoneNumber;
         levelStartTime = Time.time;
-        
     }
 
     // une fonction pour update les conditions
@@ -150,11 +245,7 @@ public class Map : MonoBehaviour
     // les conditions a update constament
     private void Update()
     {
-        
-        
         ObjectiveUI.text = listLevelObjective[currentZone].title + "\n" + listLevelObjective[currentZone].description;
-
-        
         
         if (currentZone == 0) timeUI.enabled = false;
         else
@@ -163,9 +254,7 @@ public class Map : MonoBehaviour
             listLevelObjective[currentZone].UpdateObjective("timeLimit", Time.time - levelStartTime, true);
             float t = listLevelObjective[currentZone].GetCondition("timeLimit").limitValue - (Time.time - levelStartTime);
             timeUI.text = (int)t/60+":"+((int)t/10)%6+""+(int)t%10;
-            
         }
 
-        Debug.Log(currentZone);
     }
 }
