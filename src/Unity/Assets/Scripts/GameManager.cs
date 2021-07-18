@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         }
         string[] subs = SceneManager.GetActiveScene().name.Split('_');
         this.id_level = int.Parse(subs[1]);
-        this.pseudo = "WiZaR";
+        this.pseudo = PlayerPrefs.GetString("Nickname");
         StartCoroutine(GetBestScore("http://hell-of-cthulhu/api.php?action=get_best_score&pseudo=" + this.pseudo + "&id_niveau=" + this.id_level));
     }
 
@@ -117,10 +117,8 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(PlayerPrefs.GetString("scene"));
             PlayerPrefs.SetInt("load", 1);
-           
             Time.timeScale = 1;
         }
-            
     }
 
     public void QuitGame()
@@ -158,7 +156,6 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0f;
-
         if (this.bestScore == -1) StartCoroutine(PostRun());
         else if (this.score > this.bestScore) StartCoroutine(UpdateBestRun());
         score = 0;
