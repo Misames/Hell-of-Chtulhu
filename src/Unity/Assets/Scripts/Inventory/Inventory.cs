@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
@@ -11,6 +12,10 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         GetComponent<Canvas>().enabled = false;
+    }
+
+    private void Awake()
+    {
         Panel = transform.GetChild(0).gameObject;
         slot = new int[Panel.transform.childCount];
     }
