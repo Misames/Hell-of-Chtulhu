@@ -9,9 +9,11 @@ public class TriggerCutscene : MonoBehaviour
     public GameObject player;
     public GameObject CutsceneCam;
     public GameObject[] ennemis;
+    public GameObject boss;
     
     private void Start()
     {
+        boss.GetComponent<EnemyMovementController>().enabled = false;
         for (int i = 0; i < ennemis.Length; i++)
         {
             ennemis[i].GetComponent<EnemyMovementController>().enabled = false;
@@ -39,5 +41,6 @@ public class TriggerCutscene : MonoBehaviour
         {
             ennemis[i].GetComponent<EnemyMovementController>().enabled = true;
         }
+        boss.GetComponent<EnemyMovementController>().enabled = true;
     }
 }
