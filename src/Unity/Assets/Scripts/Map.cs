@@ -95,22 +95,16 @@ public class Map : MonoBehaviour
         // on ajoute les conditions au LevelObjectif
         zone2.AddCondition("damageTaken", new Condition(0, 100, false));
         zone2.AddCondition("timeLimit", new Condition(0, 60, false));
-        zone2.AddCondition("numberKilled", new Condition(0, 15, true));
+        zone2.AddCondition("numberKilled", new Condition(0, 10, true));
         zone2.AddCondition("HitTheZone", new Condition(0f, 1f, true));
         zone2.AddCondition("IncreaseScore", new Condition(0f, 100000f, true));
 
         // fonction a realiser en cas de reussite
         // Lance le prochain level
         // clear précédent objectif?
-        zone2.SuccessAction = () =>
-        {
-            
-            zone2.RemoveCondition("numberKilled");
-            zone2.AddCondition("numberKilled", new Condition(0, 10, true));
-            zone2.description = "Tuer 10 autres ennemies";
-            zone2.SuccessAction = () => gameManager.IncreaseScore();
-        };
-
+        zone2.SuccessAction = () => gameManager.IncreaseScore();
+        
+        
         // fonction a realiser en cas d'echec
         // retour checkpoint?
         zone2.FailureAction = () => gameManager.GameOver();

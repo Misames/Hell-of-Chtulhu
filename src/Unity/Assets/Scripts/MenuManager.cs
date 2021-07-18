@@ -19,6 +19,7 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        PlayerPrefs.SetInt("load", 0);
         Time.timeScale = 1;
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
@@ -38,7 +39,7 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("load", 0);
+        
         PlayerPrefs.SetString("lang", "en");
     }
 

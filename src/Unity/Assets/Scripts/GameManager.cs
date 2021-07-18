@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
             inventory.updateTxt(0, inventory.slot[0].ToString());
             inventory.slot[1] = Ammobox;
             inventory.updateTxt(1, inventory.slot[1].ToString());
-            score = PlayerPrefs.GetInt("score");
+            score = PlayerPrefs.GetInt("Score");
             scoreUI.text = $"{score}";
         }
         string[] subs = SceneManager.GetActiveScene().name.Split('_');
@@ -141,6 +141,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("z", z);
         PlayerPrefs.SetInt("Healthbox", inventory.slot[0]);
         PlayerPrefs.SetInt("Ammobox", inventory.slot[1]);
+        Debug.Log(score);
         PlayerPrefs.SetInt("Score",score);
     }
     public void GoToOption()

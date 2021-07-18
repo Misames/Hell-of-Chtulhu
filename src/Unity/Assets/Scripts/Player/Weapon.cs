@@ -58,15 +58,6 @@ namespace Player
                         obj.BroadcastMessage("displayHitmarker");
                     }
                 }
-                if (hit.transform.CompareTag("Boss"))
-                {
-                    var target = hit.transform.GetComponent<Enemy1>();
-                    if (target != null) target.TakeDamage(damage);
-                    foreach (GameObject obj in GameObject.FindGameObjectsWithTag("UI"))
-                    {
-                        obj.BroadcastMessage("displayHitmarker");
-                    }
-                }
             }
             --currentBullets;
             ++bulletsConsum;
