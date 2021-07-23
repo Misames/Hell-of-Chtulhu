@@ -59,9 +59,14 @@ namespace Player
                     }
                 }
             }
-            --currentBullets;
-            ++bulletsConsum;
-            BulletsTxt.text = $"{currentBullets} / {bulletsLeft}";
+
+            if (gameObject.name == "PrimaryWeapon")
+            {
+                --currentBullets;
+                ++bulletsConsum;
+                BulletsTxt.text = $"{currentBullets} / {bulletsLeft}"; 
+            }
+            
         }
 
         void OnDrawGizmos()
