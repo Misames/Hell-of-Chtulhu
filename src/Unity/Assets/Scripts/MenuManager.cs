@@ -39,13 +39,13 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-        
+
         PlayerPrefs.SetString("lang", "en");
     }
 
     public void LogIn()
     {
-        StartCoroutine(getPlayer("http://hell-of-cthulhu/api.php?action=get_player&pseudo=" + this.pseudo + "&mdp=" + this.mdp));
+        StartCoroutine(getPlayer("https://site-hell-of-cthulhu.azurewebsites.net/api.php?action=get_player&pseudo=" + this.pseudo + "&mdp=" + this.mdp));
     }
 
     IEnumerator getPlayer(string uri)
