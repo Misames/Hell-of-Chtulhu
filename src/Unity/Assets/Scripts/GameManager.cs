@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         string[] subs = SceneManager.GetActiveScene().name.Split('_');
         this.id_level = int.Parse(subs[1]);
         this.pseudo = PlayerPrefs.GetString("Nickname");
-        StartCoroutine(GetBestScore("http://hell-of-cthulhu/api.php?action=get_best_score&pseudo=" + this.pseudo + "&id_niveau=" + this.id_level));
+        StartCoroutine(GetBestScore("https://site-hell-of-cthulhu.azurewebsites.net/api.php?action=get_best_score&pseudo=" + this.pseudo + "&id_niveau=" + this.id_level));
     }
 
     private void Update()
@@ -79,8 +79,8 @@ public class GameManager : MonoBehaviour
         time = Mathf.Round(minElapsed).ToString("00") + ":" + Mathf.Round(secElapsed).ToString("00");
         //timeUI.text = time;
     }
-    
-    
+
+
 
     public void PauseGame()
     {
@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Healthbox", inventory.slot[0]);
         PlayerPrefs.SetInt("Ammobox", inventory.slot[1]);
         Debug.Log(score);
-        PlayerPrefs.SetInt("Score",score);
+        PlayerPrefs.SetInt("Score", score);
     }
     public void GoToOption()
     {
@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
         form.AddField("pseudo", this.pseudo);
         form.AddField("score", this.score);
         form.AddField("temps", this.time);
-        using (UnityWebRequest www = UnityWebRequest.Post("http://hell-of-cthulhu/api.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://site-hell-of-cthulhu.azurewebsites.net/api.php", form))
         {
             yield return www.SendWebRequest();
             if (www.isNetworkError || www.isHttpError) Debug.Log(www.error);
@@ -199,7 +199,7 @@ public class GameManager : MonoBehaviour
         form.AddField("pseudo", this.pseudo);
         form.AddField("score", this.score);
         form.AddField("temps", this.time);
-        using (UnityWebRequest www = UnityWebRequest.Post("http://hell-of-cthulhu/api.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://site-hell-of-cthulhu.azurewebsites.net/api.php", form))
         {
             yield return www.SendWebRequest();
             if (www.isNetworkError || www.isHttpError) Debug.Log(www.error);
