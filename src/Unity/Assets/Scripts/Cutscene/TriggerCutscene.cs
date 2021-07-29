@@ -10,6 +10,7 @@ public class TriggerCutscene : MonoBehaviour
     public GameObject CutsceneCam;
     public GameObject[] ennemis;
     public GameObject boss;
+    public GameObject ui;
     
     private void Start()
     {
@@ -25,6 +26,7 @@ public class TriggerCutscene : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            ui.SetActive(true);
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
             CutsceneCam.SetActive(true);
             player.SetActive(false);
@@ -42,5 +44,6 @@ public class TriggerCutscene : MonoBehaviour
             ennemis[i].GetComponent<EnemyMovementController>().enabled = true;
         }
         boss.GetComponent<EnemyMovementController>().enabled = true;
+        ui.SetActive(false);
     }
 }

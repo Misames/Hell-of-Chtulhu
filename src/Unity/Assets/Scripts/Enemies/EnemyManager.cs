@@ -37,7 +37,6 @@ namespace Enemies
                     break;
                 case 1 :
                     Instantiate(m_EnemyPrefabMelee, m_SpawnPoints[randomSpawn].transform.position, Quaternion.identity);
-                    Debug.Log("melee spawn");
                     break;
                 default:
                     break;
