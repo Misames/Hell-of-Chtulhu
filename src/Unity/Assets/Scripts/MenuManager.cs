@@ -39,8 +39,8 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-
-        PlayerPrefs.SetString("lang", "en");
+        if (PlayerPrefs.GetString("lang") == "")
+            PlayerPrefs.SetString("lang", "en");
     }
 
     public void LogIn()

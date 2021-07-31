@@ -153,9 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f0c3de4b218df498502458198a3a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 400
+  health: 5000
   healBox: {fileID: 478234047073449941, guid: 2b32bbb1bca7c9d4d889e96597dd88fb, type: 3}
   ammoBox: {fileID: 6514438236807121156, guid: 8f75ddc068d4d9942a16661d4ed8ceea, type: 3}
+  _gameManager: {fileID: 0}
 --- !u!114 &8368739510684022153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,10 +170,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTransform: {fileID: 137871115843198122}
-  projectile: {fileID: 6485728653607238874, guid: fa0dbf0d68ddae64ba75fb23271e4d0e,
+  projectile: {fileID: 1051949816600110019, guid: 13ec2f0c894b2fe44a9725dd9dcb44b8,
     type: 3}
   dmg: 30
-  attackRange: 100
+  attackRange: 400
   timeBetweenAttack: 1
   attackType: 0
 --- !u!114 &5264074484737814773
