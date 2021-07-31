@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using EnemyScript;
+﻿using System.Collections;
 using UnityEngine;
 
 public class TriggerCutscene : MonoBehaviour
@@ -11,14 +8,11 @@ public class TriggerCutscene : MonoBehaviour
     public GameObject[] ennemis;
     public GameObject boss;
     public GameObject ui;
-    
+
     private void Start()
     {
         boss.GetComponent<EnemyMovementController>().enabled = false;
-        for (int i = 0; i < ennemis.Length; i++)
-        {
-            ennemis[i].GetComponent<EnemyMovementController>().enabled = false;
-        }
+        for (int i = 0; i < ennemis.Length; i++) ennemis[i].GetComponent<EnemyMovementController>().enabled = false;
         CutsceneCam.SetActive(false);
     }
 
@@ -34,15 +28,12 @@ public class TriggerCutscene : MonoBehaviour
         }
     }
 
-    IEnumerator FinCutscene()
+    private IEnumerator FinCutscene()
     {
         yield return new WaitForSeconds(7);
         player.SetActive(true);
         CutsceneCam.SetActive(false);
-        for (int i = 0; i < ennemis.Length; i++)
-        {
-            ennemis[i].GetComponent<EnemyMovementController>().enabled = true;
-        }
+        for (int i = 0; i < ennemis.Length; i++) ennemis[i].GetComponent<EnemyMovementController>().enabled = true;
         boss.GetComponent<EnemyMovementController>().enabled = true;
         ui.SetActive(false);
     }

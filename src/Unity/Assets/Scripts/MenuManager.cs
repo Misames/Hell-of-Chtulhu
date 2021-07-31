@@ -48,33 +48,21 @@ public class MenuManager : MonoBehaviour
         StartCoroutine(getPlayer("https://site-hell-of-cthulhu.azurewebsites.net/api.php?action=get_player&pseudo=" + this.pseudo + "&mdp=" + this.mdp));
     }
 
-    IEnumerator getPlayer(string uri)
+    IEnumerator getPlayer(string url)
     {
-        UnityWebRequest uwr = UnityWebRequest.Get(uri);
+        UnityWebRequest uwr = UnityWebRequest.Get(url);
         yield return uwr.SendWebRequest();
-        if (uwr.isNetworkError)
+        if (uwr.downloadHandler.text != "false")
         {
-            Debug.Log("Error While Sending: " + uwr.error);
-            if (pseudo == "WiZaR" && mdp == "fbouscaillou")
-            {
-                form.SetActive(false);
-                bg.SetActive(true);
-            }
+            Score myObject = JsonUtility.FromJson<Score>(uwr.downloadHandler.text); ;
+            PlayerPrefs.SetString("Nickname", this.pseudo);
+            form.SetActive(false);
+            bg.SetActive(true);
         }
         else
         {
-            if (uwr.downloadHandler.text != "false")
-            {
-                PlayerPrefs.SetString("Nickname", this.pseudo);
-                form.SetActive(false);
-                bg.SetActive(true);
-                var myObject = JsonUtility.FromJson<Score>(uwr.downloadHandler.text); ;
-            }
-            else
-            {
-                form.SetActive(true);
-                bg.SetActive(false);
-            }
+            form.SetActive(true);
+            bg.SetActive(false);
         }
     }
 

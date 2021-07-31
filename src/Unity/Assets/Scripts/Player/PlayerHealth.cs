@@ -1,39 +1,35 @@
 ﻿using UnityEngine;
 
-namespace Player
+public class PlayerHealth : MonoBehaviour
 {
-    public class PlayerHealth : MonoBehaviour
+    public float MAXHEALTH = 100f;
+    public float currentHealth;
+
+    private void Start()
     {
-        public float MAXHEALTH = 100f;
-        public float currentHealth;
+        currentHealth = MAXHEALTH;
+    }
 
-        private void Start()
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        Map.UpdateHealth(MAXHEALTH - currentHealth);
+        if (currentHealth <= 0)
         {
-            currentHealth = MAXHEALTH;
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
-        public void TakeDamage(float damage)
-        {
-            currentHealth -= damage;
-            Map.UpdateHealth(MAXHEALTH - currentHealth);
-            if (currentHealth <= 0)
-            {
-                Time.timeScale = 0;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-        }
+    }
 
-        public void HealPlayer(int amount)
-        {
-            if ((currentHealth + amount) > MAXHEALTH)
-                currentHealth = MAXHEALTH;
-            else
-                currentHealth += amount;
-        }
+    public void HealPlayer(int amount)
+    {
+        if ((currentHealth + amount) > MAXHEALTH) currentHealth = MAXHEALTH;
+        else currentHealth += amount;
+    }
 
-        private void Restart()
-        {
-            currentHealth = MAXHEALTH;
-        }
+    private void Restart()
+    {
+        currentHealth = MAXHEALTH;
     }
 }

@@ -7,7 +7,6 @@ public class Condition
     public float limitValue;
     public bool isSuccessCondition;
 
-    // init d'une condition
     public Condition(float initialV, float limitV, bool isSuccess)
     {
         currentValue = initialV;
@@ -25,7 +24,7 @@ public class LevelObjective
     public Action SuccessAction;
     public Action FailureAction;
 
-    public LevelObjective(string title="", string description="")
+    public LevelObjective(string title = "", string description = "")
     {
         this.title = title;
         this.description = description;
@@ -36,20 +35,20 @@ public class LevelObjective
     {
         conditionList.Add(name, newObj);
     }
-    
+
     public Condition GetCondition(string name)
     {
         return conditionList[name];
     }
-    
+
     public void RemoveCondition(string name)
     {
-        if(conditionList.ContainsKey(name))conditionList.Remove(name);
+        if (conditionList.ContainsKey(name)) conditionList.Remove(name);
     }
 
     public void UpdateObjective(string name, float value, bool equal = false)
     {
-        if(conditionList.ContainsKey(name))
+        if (conditionList.ContainsKey(name))
         {
             Condition cond = conditionList[name];
             if (equal) cond.currentValue = value;

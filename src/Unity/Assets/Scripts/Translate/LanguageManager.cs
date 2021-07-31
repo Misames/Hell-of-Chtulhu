@@ -7,13 +7,9 @@ public class LanguageManager : MonoBehaviour
     public void changeLang(int lang)
     {
         if (lang == 1)
-        {
             PlayerPrefs.SetString("lang", "fr");
-        }
         else
-        {
             PlayerPrefs.SetString("lang", "en");
-        }
     }
 
     private void Update()

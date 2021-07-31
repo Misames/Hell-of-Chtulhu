@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
@@ -9,7 +8,7 @@ public class Inventory : MonoBehaviour
     public GameObject Player;
     public int[] slot;
 
-    void Start()
+    private void Start()
     {
         GetComponent<Canvas>().enabled = false;
     }
@@ -20,7 +19,7 @@ public class Inventory : MonoBehaviour
         slot = new int[Panel.transform.childCount];
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -45,5 +44,4 @@ public class Inventory : MonoBehaviour
     {
         Panel.transform.GetChild(nrslot).GetChild(1).GetComponent<Text>().text = txt;
     }
-
 }

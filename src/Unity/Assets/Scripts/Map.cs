@@ -14,7 +14,6 @@ public class Map : MonoBehaviour
     // variables utiles a la map
     private static float levelStartTime;
     private static int currentZone;
-    
     public TextMeshProUGUI timeUI;
     public TextMeshProUGUI ObjectiveUI;
 
@@ -23,7 +22,6 @@ public class Map : MonoBehaviour
     {
         // init les variables
         listLevelObjective = new List<LevelObjective>();
-        
         currentZone = 0;
         // pour test on ajoute les différents niveau ici
         // peut être rajouter un systeme ou des fonctions pour mieux inserer
@@ -41,12 +39,11 @@ public class Map : MonoBehaviour
         initZone4();
         initZone5();
     }
-    
+
     private void initZoneIntermediary()
     {
         // cree une liste de conditions de succes ou d'echec pour un objectif
         LevelObjective intermediary = new LevelObjective("Atteindre la prochaine zone", "Dépéchez-vous!!!");
-
 
         // on ajoute les conditions au LevelObjectif
         intermediary.AddCondition("damageTaken", new Condition(0, 100, false));
@@ -81,12 +78,11 @@ public class Map : MonoBehaviour
         // fonction a realiser en cas d'echec
         // retour checkpoint?
         zone1.FailureAction = () => gameManager.GameOver();
-        
 
         // on rajoute l'objectif
         listLevelObjective.Add(zone1);
     }
-    
+
     private void initZone2()
     {
         // cree une liste de conditions de succes ou d'echec pour un objectif
@@ -103,8 +99,8 @@ public class Map : MonoBehaviour
         // Lance le prochain level
         // clear précédent objectif?
         zone2.SuccessAction = () => gameManager.IncreaseScore();
-        
-        
+
+
         // fonction a realiser en cas d'echec
         // retour checkpoint?
         zone2.FailureAction = () => gameManager.GameOver();
@@ -112,7 +108,7 @@ public class Map : MonoBehaviour
         // on rajoute l'objectif
         listLevelObjective.Add(zone2);
     }
-    
+
     private void initZone3()
     {
         // cree une liste de conditions de succes ou d'echec pour un objectif
@@ -130,7 +126,6 @@ public class Map : MonoBehaviour
         // clear précédent objectif?
         zone3.SuccessAction = () =>
         {
-            
             zone3.RemoveCondition("numberKilled");
             zone3.AddCondition("numberKilled", new Condition(0, 10, true));
             zone3.description = "Tuer 10 autres ennemies";
@@ -144,7 +139,7 @@ public class Map : MonoBehaviour
         // on rajoute l'objectif
         listLevelObjective.Add(zone3);
     }
-    
+
     private void initZone4()
     {
         // cree une liste de conditions de succes ou d'echec pour un objectif
@@ -162,7 +157,6 @@ public class Map : MonoBehaviour
         // clear précédent objectif?
         zone4.SuccessAction = () =>
         {
-            
             zone4.RemoveCondition("numberKilled");
             zone4.AddCondition("numberKilled", new Condition(0, 10, true));
             zone4.description = "Tuer 10 autres ennemies";
@@ -176,7 +170,7 @@ public class Map : MonoBehaviour
         // on rajoute l'objectif
         listLevelObjective.Add(zone4);
     }
-    
+
     private void initZone5()
     {
         // cree une liste de conditions de succes ou d'echec pour un objectif
@@ -194,7 +188,6 @@ public class Map : MonoBehaviour
         // clear précédent objectif?
         zone5.SuccessAction = () =>
         {
-            
             zone5.RemoveCondition("numberKilled");
             zone5.AddCondition("numberKilled", new Condition(0, 5, true));
             zone5.description = "Tuer 5 autres ennemies";
@@ -240,14 +233,14 @@ public class Map : MonoBehaviour
     private void Update()
     {
         ObjectiveUI.text = listLevelObjective[currentZone].title + "\n" + listLevelObjective[currentZone].description;
-        
+
         if (currentZone == 0) timeUI.enabled = false;
         else
         {
             timeUI.enabled = true;
             listLevelObjective[currentZone].UpdateObjective("timeLimit", Time.time - levelStartTime, true);
             float t = listLevelObjective[currentZone].GetCondition("timeLimit").limitValue - (Time.time - levelStartTime);
-            timeUI.text = (int)t/60+":"+((int)t/10)%6+""+(int)t%10;
+            timeUI.text = (int)t / 60 + ":" + ((int)t / 10) % 6 + "" + (int)t % 10;
         }
 
     }

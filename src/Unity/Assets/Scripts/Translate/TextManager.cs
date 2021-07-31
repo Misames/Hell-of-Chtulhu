@@ -32,6 +32,7 @@ public class TextManager : MonoBehaviour
 #if UNITY_EDITOR
         path = "Assets/StreamingAssets/language.json";
 #endif
+
         StreamReader reader = new StreamReader(path);
         string text = reader.ReadToEnd();
         reader.Close();
@@ -55,9 +56,7 @@ public class TextManager : MonoBehaviour
         while (i < textList.Length)
         {
             if (String.Equals(textList[i].key, textName))
-            {
                 return textList[i].texts;
-            }
             i += 1;
         }
         return null;

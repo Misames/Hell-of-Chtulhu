@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
             x = PlayerPrefs.GetFloat("x");
             y = PlayerPrefs.GetFloat("y") + 2;
             z = PlayerPrefs.GetFloat("z");
-
             player.transform.position = new Vector3(x, y, z);
             Healthbox = PlayerPrefs.GetInt("Healthbox");
             Ammobox = PlayerPrefs.GetInt("Ammobox");
@@ -67,28 +66,22 @@ public class GameManager : MonoBehaviour
             if (isPause) ResumeGame();
             else PauseGame();
         }
-
         secElapsed += Time.deltaTime;
-
         if (secElapsed >= 59)
         {
             minElapsed += 1f;
             secElapsed = 0f;
         }
-
         time = Mathf.Round(minElapsed).ToString("00") + ":" + Mathf.Round(secElapsed).ToString("00");
-        //timeUI.text = time;
     }
-
-
 
     public void PauseGame()
     {
+        Time.timeScale = 0f;
+        isPause = true;
         pauseMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        Time.timeScale = 0f;
-        isPause = true;
         GameObject.Find("WeaponHolder").GetComponent<WeaponSwitching>().enabled = false;
     }
 
@@ -112,7 +105,6 @@ public class GameManager : MonoBehaviour
     {
         save();
         SceneManager.LoadScene("MainMenu");
-
     }
 
     public void retry()
@@ -143,11 +135,6 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Ammobox", inventory.slot[1]);
         Debug.Log(score);
         PlayerPrefs.SetInt("Score", score);
-    }
-    public void GoToOption()
-    {
-        // set non-visible l'UI PauseMenu
-        // set visible le GameObject qui contnient mon UI OPTION
     }
 
     public void IncreaseScore()

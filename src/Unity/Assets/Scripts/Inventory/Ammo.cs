@@ -4,7 +4,7 @@ public class Ammo : MonoBehaviour
 {
     private Inventory inventory_script;
 
-    void Start()
+    private void Start()
     {
         inventory_script = GameObject.Find("Inventory").GetComponent<Inventory>();
     }

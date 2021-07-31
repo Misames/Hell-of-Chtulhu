@@ -421,6 +421,11 @@ PrefabInstance:
       propertyPath: health
       value: 5000
       objectReference: {fileID: 0}
+    - target: {fileID: 8374920672658703960, guid: fe195c73dc34a4b4e8c162fe1980b1e8,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 90136055}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe195c73dc34a4b4e8c162fe1980b1e8, type: 3}
 --- !u!1001 &405311786

@@ -6,13 +6,13 @@ public class HitMarker : MonoBehaviour
 {
     public float displayTime = 0.3f;
 
-    void Start()
+    private void Start()
     {
         Image img = gameObject.GetComponent<Image>();
         img.enabled = false;
     }
 
-    void displayHitmarker()
+    private void displayHitmarker()
     {
         StartCoroutine(displayHitmarkerRoutine());
     }

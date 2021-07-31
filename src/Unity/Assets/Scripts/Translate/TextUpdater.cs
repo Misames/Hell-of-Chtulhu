@@ -6,20 +6,19 @@ public class TextUpdater : MonoBehaviour
     private TextStorage textStorage;
     private TextMeshProUGUI textComponent;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         textStorage = gameObject.GetComponent<TextStorage>();
         textComponent = gameObject.GetComponent<TextMeshProUGUI>();
         updateText();
     }
 
-    void Update()
+    private void Update()
     {
         updateText();
     }
 
-    void updateText()
+    private void updateText()
     {
         textComponent.SetText(textStorage.getText());
     }

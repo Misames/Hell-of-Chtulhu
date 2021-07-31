@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Player;
 
 public class EnemyProjectile : MonoBehaviour
 {
